@@ -1,6 +1,5 @@
-$bg: #141414;
-$fg: #fff;
-$g1: #222;
+@use './vars' as *;
+
 
 ::selection {
   color: $bg;

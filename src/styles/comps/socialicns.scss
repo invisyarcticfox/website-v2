@@ -1,3 +1,6 @@
+@use '../vars' as *;
+
+
 #socials {
   display: flex;
   margin: 10px auto 0;
@@ -19,7 +22,7 @@
     svg {
       vertical-align: middle;
       transform: scale(1);
-      transition: transform 200ms ease;
+      @include transition(transform);
     }
   }
 }

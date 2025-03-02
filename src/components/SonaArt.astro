@@ -1,0 +1,26 @@
+---
+import '../styles/comps/sonaart.scss';
+import { Image } from 'astro:assets';
+
+const res = await fetch('https://api.invisyarcticfox.uk/sonaart');
+const d = await res.json();
+---
+
+<div id='cont'>
+  {
+    d.map((art: { artist: string; artisturl: string; file: string}, i: number) => (
+      <div class={`art ${art.artist}`}>
+        <Image
+          src={`https://cdn.invisyarcticfox.uk/art/${art.file}`} alt={art.file}
+          inferSize loading={i < 4 ? 'eager' : 'lazy'}
+          style={{
+            backgroundImage: `url(https://cdn.invisyarcticfox.uk/art/small/${art.file})`
+          }}
+        />
+        <div class='cap'>
+          <a href={art.artisturl} target="_blank" rel="noopener noreferrer">@{art.artist}</a>
+        </div>
+      </div>
+    ))
+  }
+</div>

@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 #links {
   display: grid;
   gap: 10px;
@@ -20,9 +22,7 @@
     padding: 5px;
     text-decoration: none;
 
-    transition-property: background, width;
-    transition-duration: 200ms;
-    transition-timing-function: ease;
+    @include transition(background, width);
     border-radius: 15px;
     &:hover {
       width: 60%;
