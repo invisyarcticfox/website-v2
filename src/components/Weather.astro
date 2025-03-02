@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import type { WeatherRes } from '../types/weather';
+import '../styles/comps/weather.scss'
+
+const res = await fetch('https://api.invisyarcticfox.uk/weather');
+const d:WeatherRes = await res.json();
+---
+
+<div id='weather'>
+  <Image
+    src={`https://api.invisyarcticfox.uk/weather/icons/${d.weather[0].icon}`}
+    alt={d.weather[0].icon}
+    inferSize
+    loading={'eager'}
+  />
+  <div class='txt'>
+    <div class='desc'><b>{d.weather[0].description}</b></div>
+    <div class='temp'>{d.main.temp}°c</div>
+    <div class='time'><span class="clock"></span><span class="tz">(GMT)</span></div>
+  </div>
+</div>
+
+<script lang='js'>
+  const timeelem = document.querySelector('div.txt .time span')
+  function updateTime() {
+    const now = new Date();
+
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false,
+      timeZone: 'Europe/London'
+    });
+
+    const timeString = formatter.format(now);
+    const timeSplit = timeString.split(':')
+    timeelem.innerHTML = `${timeSplit[0]}<span class='c'>:</span>${timeSplit[1]}`
+  }
+
+  setInterval(updateTime, 10000);
+  updateTime();
+</script>

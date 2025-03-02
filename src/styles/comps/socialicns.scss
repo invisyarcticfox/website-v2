@@ -1,0 +1,25 @@
+#socials {
+  display: flex;
+  margin: 10px auto 0;
+  height: var(--sz);
+  text-decoration: none;
+  position: relative;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+    width: var(--sz);
+    height: var(--sz);
+    &:hover {
+      svg {
+        transform: scale(1.25);
+      }
+    }
+
+    svg {
+      vertical-align: middle;
+      transform: scale(1);
+      transition: transform 200ms ease;
+    }
+  }
+}

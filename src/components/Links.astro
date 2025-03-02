@@ -1,0 +1,22 @@
+---
+import '../styles/comps/links.scss'
+
+interface Props {
+  cap: string;
+  links: {
+    name: string;
+    link: string;
+    isExt?: boolean;
+  }[]
+}
+const { cap, links } = Astro.props
+---
+
+<div id="links">
+  <div class="cap">{cap}</div>
+  {
+    links.map((link) => (
+      <a href={link.link} target={link.isExt ? '_blank' : undefined} rel="nopener noreferrer">{link.name}</a>
+    ))
+  }
+</div>

@@ -1,0 +1,37 @@
+---
+import * as icn from 'simple-icons';
+import '../styles/comps/socialicns.scss'
+
+
+const links = [
+  { name: 'discord', link: 'https://discord.com/user/470193291053498369' },
+  { name: 'twitter', link: 'https://twitter.com/invisyarcticfox' },
+  { name: 'bluesky', link: 'https://bsky.app/profile/invisyarcticfox.uk' },
+  { name: 'telegram', link: 'https://t.me/invisyarcticfox' },
+  { name: 'email', link: 'mailto:lucas@invisyarcticfox.uk', icon: 'maildotru' },
+];
+
+const linkCount = links.length
+const icnSize = 42;
+const icnGap = 20;
+const icnWidth = `${(icnSize * linkCount) + (icnGap * (linkCount - 1))}px`
+---
+
+<div id="socials" style={{width: icnWidth, '--sz': `${icnSize}px`, gap: `${icnGap}px`}}>
+  {
+    links.map((link) => {
+      const icnName = link.icon ?? link.name;
+      const icnKey = `si${icnName.charAt(0).toUpperCase()}${icnName.slice(1)}` as keyof typeof icn;
+      const icnData = icn[icnKey] as unknown as { hex: string; path: string; };
+  
+      return icnData && icnData.path ? (
+        <a href={link.link} target='_blank' rel='noopener noreferrer'>
+          <svg viewBox='0 0 24 24'>
+            <title>{link.name.toUpperCase()}</title>
+            <path d={icnData.path} fill={`#${icnData.hex}`} />
+          </svg>
+        </a>
+      ) : null;
+    })
+  }  
+</div>
