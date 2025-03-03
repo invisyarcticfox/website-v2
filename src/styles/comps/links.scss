@@ -2,9 +2,8 @@
 
 #links {
   display: grid;
-  gap: 10px;
   text-align: center;
-  margin-bottom: 15px;
+  margin: 15px 0 0;
   
   .cap {
     font-weight: bold;
@@ -13,7 +12,7 @@
 
   a {
     width: 50%;
-    margin: 0 auto;
+    margin: 5px auto;
 
     font-size: 22px;
     color: $fg2;
