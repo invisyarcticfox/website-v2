@@ -2,6 +2,6 @@
 
 
 - Dependencies this project uses:
-  - [**sass**](https://sass-lang.com/)@*1.85.0*
-  - [**simple-icons**](https://simpleicons.org/)@*11.15.0*
-  - [**wrangler**](https://developers.cloudflare.com/workers/wrangler/)@*3.109.3*
+  - [**@astrojs/cloudflare**](https://docs.astro.build/en/guides/integrations-guide/cloudflare)@*12.2.3*
+  - [**sass**](https://sass-lang.com)@*1.85.0*
+  - [**simple-icons**](https://simpleicons.org)@*11.15.0*

@@ -14,7 +14,5 @@ export default defineConfig({
     port: 4321,
     open: '/'
   },
-  adapter: cloudflare({
-    imageService: 'compile'
-  })
+  adapter: cloudflare({})
 });
