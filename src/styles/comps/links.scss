@@ -16,13 +16,12 @@
     margin: 0 auto;
 
     font-size: 22px;
-    color: #fff;
+    color: $fg2;
     background: #555;
     border: 3px solid #ccc;
     padding: 5px;
     text-decoration: none;
-
-    @include transition(background, width);
+    transition-property: background, width;
     border-radius: 15px;
     &:hover {
       width: 60%;

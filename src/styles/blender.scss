@@ -1,0 +1,32 @@
+@use './vars' as *;
+
+#cont {
+  width: 75%;
+  padding-top: 35px;
+
+  #item {
+    margin-bottom: 50px;
+    &.mixamo {
+      margin-bottom: 15px;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 30px;
+      margin: 10px 0;
+    }
+    video, img {
+      margin: 3px;
+    }
+    .notes {
+      margin-top: 5px;
+      font-size: 25px;
+    }
+  }
+  .divider {
+    width: 85%;
+    height: 1px;
+    background: #aaa;
+    margin: 20px auto;
+  }
+}

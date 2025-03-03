@@ -13,16 +13,14 @@
     text-decoration: none;
     width: var(--sz);
     height: var(--sz);
+    transform: scale(1);
+    transition-property: transform;
     &:hover {
-      svg {
-        transform: scale(1.25);
-      }
+      transform: scale(1.25);
     }
 
     svg {
       vertical-align: middle;
-      transform: scale(1);
-      @include transition(transform);
     }
   }
 }

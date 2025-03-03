@@ -16,7 +16,7 @@
 
   opacity: 1;
   filter: grayscale(0%);
-  @include transition(opacity, filter);
+  transition-property: opacity, filter;
 
   &.dim {
     opacity: .5;

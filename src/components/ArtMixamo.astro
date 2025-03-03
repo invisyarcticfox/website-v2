@@ -1,0 +1,33 @@
+---
+import { Image } from 'astro:assets'
+import '../styles/blender.scss'
+
+interface Props {
+  flnm: string;
+  count: number;
+}
+const { flnm, count = 1 } = Astro.props
+
+const images = []
+const wdthPerc = Math.floor(100 / count) - 1
+
+for (let i = 0; i < count; i++) {
+  const src = `https://cdn.invisyarcticfox.uk/work/${flnm}${i + 1}.png`
+  const alt = `${flnm}${i+1}`
+  images.push({ src, alt })
+}
+---
+<div id="item" class="mixamo">
+  {
+    images.map((image) => (
+      <Image
+        src={image.src} alt={image.alt}
+        inferSize loading={'lazy'}
+        style={{width: `${wdthPerc}%`, height: 'auto', aspectRatio: '9/16'}}
+        />
+    ))
+  }
+  <div class="notes">
+    <slot />
+  </div>
+</div>

@@ -1,0 +1,29 @@
+---
+import '../styles/blender.scss'
+
+interface Props {
+  title: string;
+  src: string;
+  ytlink?: string;
+  width: number;
+  muted?: boolean;
+}
+const { title, src, ytlink, width, muted } = Astro.props
+---
+
+<div id='item'>
+  <div class='title'>{title}</div>
+  <video
+    width={`${width}%`} src={`https://cdn.invisyarcticfox.uk/work/${src}`}
+    controls muted={muted ? true : undefined}
+  />
+  <div class='notes'>
+    {
+      ytlink ? (
+        <a href={`https://youtu.be/${ytlink}`} target='_blank' rel='noopener noreferrer'>audio source</a>
+      ) : (
+        <slot />
+      )
+    }
+  </div>
+</div>

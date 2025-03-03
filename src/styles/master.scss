@@ -25,3 +25,20 @@ body {
     );
   }
 }
+
+
+#cont {
+  font-size: 0;
+  text-align: center;
+  width: calc(100% - 40px);
+  padding: 25px 0;
+  margin: 0 auto;
+}
+
+a {
+  color: $fg;
+  transition-property: color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+  &:hover { color: $fg2 }
+}
