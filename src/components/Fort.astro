@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+  name: string;
+  char: string;
+  egrLd?: boolean;
+}
+const { name, char, egrLd } = Astro.props
+---
+
+<a
+  href={`https://cdn.invisyarcticfox.uk/fortography/${char}/big/${name}.png`}
+  target="_blank" rel="noopener noreferrer"
+  >
+  <Image
+    src={`https://cdn.invisyarcticfox.uk/fortography/${char}/small/${name}.png`} alt={name}
+    inferSize loading={egrLd ? 'eager' : 'lazy'}
+  />
+</a>

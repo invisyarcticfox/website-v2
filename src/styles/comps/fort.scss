@@ -1,0 +1,28 @@
+@use '../vars' as *;
+
+
+#cont {
+  font-size: 0;
+  width: calc(100% - 40px);
+  padding: 25px 0;
+  margin: 0 auto;
+  .char {
+    width: 100%;
+    margin: 15px 0;
+    a {
+      opacity: 1;
+      filter: saturate(100%);
+      @include transition(opacity, filter);
+      &:hover {
+        opacity: .5;
+        filter: saturate(75%)
+      }
+      img {
+        width: calc(25% - 8px);
+        height: auto;
+        aspect-ratio: 16/9;
+        margin: 4px;
+      }
+    }
+  }
+}
