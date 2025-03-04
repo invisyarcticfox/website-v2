@@ -1,5 +1,8 @@
-@use '../vars' as *;
+@use './vars' as *;
 
+#cont {
+  text-align: left;
+}
 
 .art {
   $m: 5px;

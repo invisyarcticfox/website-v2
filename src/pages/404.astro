@@ -1,0 +1,54 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import avt from "@/assets/avatar.png";
+---
+
+<Layout title="404 Not found">
+  <div id="error">
+    <Image
+      src={avt} alt={'avt'}
+      width={256} loading={'eager'}
+      quality={'high'}
+      style={{
+        aspectRatio: '1/1',
+        borderRadius: '25%',
+        border: '5px #555 solid',
+        filter: 'saturate(50%)'
+      }}
+    />
+    <p class="err"><b>404: Not found</b></p>
+    <p class="path">Path: <span class="pth" style="font-weight: bold; font-family: monospace;">/404</span></p>
+  </div>
+</Layout>
+
+<style is:inline>
+  #error {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 30px;
+  }
+  .path {
+    font-size: 25px;
+    background: #333;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 2px #555 solid;
+  }
+
+  footer { display: none; }
+</style>
+
+<script lang="js" is:inline>
+  const urlPth = decodeURIComponent(window.location.pathname)
+  document.querySelector('span.pth').textContent = urlPth
+  document.title += ` (${urlPth})`
+</script>

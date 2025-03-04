@@ -1,12 +1,13 @@
 {
   "name": "website-v2",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "npm run build && wrangler pages dev ./dist",
-    "astro": "astro"
+    "astro": "astro",
+    "killnode": "taskkill /F /IM node.exe"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.2.3",
