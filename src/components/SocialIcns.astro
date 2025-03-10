@@ -2,10 +2,17 @@
 import * as icn from 'simple-icons';
 import '@/styles/comps/socialicns.scss'
 import IcnLink from './IcnLink.astro';
-import type { SocialIcn } from '@/types/socialicns'
 
+type SocialIcn = {
+  href: string;
+  name?: string;
+  slug: string;
+  path: string;
+  hex: string;
+  title: string;
+}
 
-const links: SocialIcn[] = [
+const links:SocialIcn[] = [
   { href: 'https://discord.com/user/470193291053498369', ...icn.siDiscord },
   { href: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter },
   { href: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky },

@@ -8,7 +8,7 @@
     $m: 4px;
     display: inline-block;
     width: calc(25% - ($m * 2));
-    height: 270px;
+    height: auto;
     margin: $m;
 
     animation: animUp 1s forwards ease-in-out;
@@ -22,7 +22,6 @@
     img {
       width: 100%;
       height: 100%;
-      aspect-ratio: 16/9;
     }
   }
 }

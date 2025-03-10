@@ -3,48 +3,41 @@ import Layout from '@/layouts/Layout.astro'
 import Fort from '@/components/Fort.astro'
 import '@/styles/comps/fort.scss'
 
+type charInfo = {
+  char: string;
+  names: string[];
+  stDelIn: number;
+}[]
+
+const res = await fetch('https://api.invisyarcticfox.uk/fortography')
+const charData:charInfo = await res.json()
+
 const d = 100
+let imgIndex = 0
 ---
 
 <Layout>
-  <div id="cont">
-    <div class="char fennix">
-      <Fort char='fennix' name='banana' egrLd={true} delay={d * 1} />
-      <Fort char='fennix' name='blossom' egrLd={true} delay={d * 2} />
-      <Fort char='fennix' name='card' egrLd={true} delay={d * 3} />
-      <Fort char='fennix' name='claws' egrLd={true} delay={d * 4} />
-
-      <Fort char='fennix' name='fist' egrLd={true} delay={d * 5} />
-      <Fort char='fennix' name='fists' egrLd={true} delay={d * 6} />
-      <Fort char='fennix' name='guitar1' egrLd={true} delay={d * 7} />
-      <Fort char='fennix' name='guitar2' egrLd={true} delay={d * 8} />
-
-      <Fort char='fennix' name='lightning' egrLd={true} delay={d * 9} />
-      <Fort char='fennix' name='peace' egrLd={true} delay={d * 10} />
-      <Fort char='fennix' name='smug' egrLd={true} delay={d * 11} />
-      <Fort char='fennix' name='wings' egrLd={true} delay={d * 12} />
-    </div>
-    <div class="char lucienwest">
-      <Fort char='lucienwest' name='arcade1' egrLd={true} delay={d * 13} />
-      <Fort char='lucienwest' name='arcade2' egrLd={true} delay={d * 14} />
-      <Fort char='lucienwest' name='bar' egrLd={true} delay={d * 15} />
-      <Fort char='lucienwest' name='graveyard' egrLd={true} delay={d * 16} />
-
-      <Fort char='lucienwest' name='grappler1' />
-      <Fort char='lucienwest' name='grappler2' />
-      <Fort char='lucienwest' name='grappler3' />
-      <Fort char='lucienwest' name='grappler4' />
-
-      <Fort char='lucienwest' name='ram1' />
-      <Fort char='lucienwest' name='ram2' />
-      <Fort char='lucienwest' name='ram3' />
-      <Fort char='lucienwest' name='ram4' />
-    </div>
-    <div class="char wendell">
-      <Fort char='wendell' name='brite' />
-      <Fort char='wendell' name='fists' />
-      <Fort char='wendell' name='looking' />
-      <Fort char='wendell' name='nose' />
-    </div>
+  <div id='cont'>
+    {
+      charData.map((info) => (
+        <div class={`char ${info.char}`}>
+          {
+            info.names.map((name, index) => {
+              const delInd = (info.stDelIn || 0) + index + 1
+              const egrLdCount = imgIndex < 12
+              imgIndex++
+              return (
+                <Fort
+                  char={info.char}
+                  name={name}
+                  egrLd={egrLdCount}
+                  delay={info.stDelIn === 100 ? undefined : d * delInd}
+                />
+              )
+            })
+          }
+        </div>
+      ))
+    }
   </div>
 </Layout>

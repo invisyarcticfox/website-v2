@@ -7,7 +7,7 @@ interface Props {
   egrLd?: boolean;
   delay?: number;
 }
-const { name, char, egrLd, delay } = Astro.props
+const { name, char, egrLd, delay = 0 } = Astro.props
 ---
 
 <a
