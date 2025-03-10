@@ -1,8 +1,8 @@
 ---
-import '@/styles/master.scss'
 import '@/styles/comps/footer.scss'
-
+import IcnLink from '@/components/IcnLink.astro';
 import { siAstro, siCloudflarepages } from 'simple-icons';
+
 const icns = [
   { href: 'https://astro.build', ...siAstro },
   { href: 'https://pages.cloudflare.com', ...siCloudflarepages }
@@ -23,6 +23,7 @@ const { title = Astro.url } = Astro.props
 		<link rel='icon' type='image/svg+xml' href='/favicon.png' />
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="stylesheet" href="/master.css">
 		<meta name='title' content={Astro.url}>
 		<meta name='description' content='a gay fox that likes military aviation :3'>
 		<meta name='keywords' content='blender, animation, photography, sona art, furry, invisyarcticfox, invisy arcticfox'>
@@ -55,12 +56,7 @@ const { title = Astro.url } = Astro.props
 			<span class="icons">
 				{
 					icns.map(({ href, path, slug, hex }) => (
-						<a href={href} target="_blank" rel="noopener noreferrer">
-						  <svg viewBox="0 0 24 24">
-						    <title>{slug.toUpperCase()}</title>
-						    <path d={path} fill={`#${hex}`}>
-						  </svg>
-						</a>
+						<IcnLink href={href} title={slug} icn={{ path, hex}} />
 					))
 				}
 			</span>

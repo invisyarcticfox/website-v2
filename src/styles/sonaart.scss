@@ -10,6 +10,9 @@
   width: calc((100% / 3) - ($m * 3));
   vertical-align: middle;
   margin: 0 $m;
+
+  opacity: 0;
+  animation: animUp 1s forwards ease-in-out;
   
   img {
     display: block;

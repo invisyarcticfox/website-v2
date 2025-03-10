@@ -5,13 +5,15 @@ interface Props {
   name: string;
   char: string;
   egrLd?: boolean;
+  delay?: number;
 }
-const { name, char, egrLd } = Astro.props
+const { name, char, egrLd, delay } = Astro.props
 ---
 
 <a
   href={`https://cdn.invisyarcticfox.uk/fortography/${char}/big/${name}.png`}
   target="_blank" rel="noopener noreferrer"
+  style={{animationDelay: `${delay}ms`}}
   >
   <Image
     src={`https://cdn.invisyarcticfox.uk/fortography/${char}/small/${name}.png`} alt={name}
