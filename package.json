@@ -6,8 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "npm run build && wrangler pages dev ./dist",
-    "astro": "astro",
-    "killnode": "taskkill /F /IM node.exe"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.2.3",

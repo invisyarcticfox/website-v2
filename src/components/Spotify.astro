@@ -14,7 +14,7 @@ import IcnLink from './IcnLink.astro';
 <script lang='js'>
   async function updateSpotifyInfo() {
     try {
-      const res = await fetch('https://lanyard.invisyarcticfox.uk/v1/users/470193291053498369');
+      const res = await fetch('https://api.lanyard.rest/v1/users/470193291053498369');
       const { data: { spotify: data = null } } = await res.json();
 
       const spot = {

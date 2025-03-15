@@ -62,10 +62,7 @@ const { title = Astro.url } = Astro.props
 				}
 			</span>
 			|
-			<span class="txt"><b>invisyarcticfox <span class="year">0000</span></b></span>
-			<script lang='js'>
-			  document.querySelector('footer .txt .year').textContent = new Date().getFullYear()
-			</script>
+			<span class="txt"><b>invisyarcticfox {new Date().getFullYear()}</b></span>
 		</footer>
 	</body>
 </html>

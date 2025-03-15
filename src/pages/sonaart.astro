@@ -5,14 +5,21 @@ import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import '@/styles/sonaart.scss';
 
+type sonaArt = Array<{
+  artist: string;
+  artisturl: string;
+  file: string;
+  date: string;
+}>
+
 const res = await fetch('https://api.invisyarcticfox.uk/sonaart');
-const d = await res.json();
+const d:sonaArt = await res.json();
 ---
 
 <Layout>
   <div id='cont'>
     {
-      d.map((art: { artist: string; artisturl: string; file: string}, i: number) => (
+      d.map((art, i: number) => (
         <div class={`art ${art.artist}`} style={{ animationDelay: `${150 + i * 150}ms`}}>
           <Image
             src={`https://cdn.invisyarcticfox.uk/art/${art.file}`} alt={art.file}
@@ -22,7 +29,12 @@ const d = await res.json();
             }}
           />
           <div class='cap'>
-            <a href={art.artisturl} target="_blank" rel="noopener noreferrer">@{art.artist}</a>
+            <div class="url">
+              <a href={art.artisturl} target="_blank" rel="noopener noreferrer">@{art.artist}</a>
+            </div>
+            <div class="date">
+              {art.date}
+            </div>
           </div>
         </div>
       ))
