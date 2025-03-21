@@ -23,9 +23,8 @@ body {
 
 
 #cont {
-  font-size: 0;
+  font-size: 25px;
   text-align: center;
-  width: calc(100% - 40px);
   padding: 25px 0;
   margin: 0 auto;
 }

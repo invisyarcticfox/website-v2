@@ -28,6 +28,8 @@ import IcnLink from './IcnLink.astro';
         spot.link.href = `https://open.spotify.com/track/${data.track_id}`;
         spot.txt.innerHTML = `"${data.song}" - <b>${data.artist.split(';')[0]}</b>`;
       } else {
+        spot.link.removeAttribute("target")
+        spot.link.href = ''
       }
     } catch (error) {
       console.error('Error fetching data:', error);

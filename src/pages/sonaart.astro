@@ -3,41 +3,55 @@ export const prerender = false
 
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import * as icn from 'simple-icons'
 import '@/styles/sonaart.scss';
+
 
 type sonaArt = Array<{
   artist: string;
   artisturl: string;
+  platform: string;
   file: string;
   date: string;
+  dateUnix: number;
 }>
 
 const res = await fetch('https://api.invisyarcticfox.uk/sonaart');
 const d:sonaArt = await res.json();
+
+const cdnurl = 'https://cdn.invisyarcticfox.uk/art'
 ---
 
 <Layout>
   <div id='cont'>
     {
-      d.map((art, i: number) => (
-        <div class={`art ${art.artist}`} style={{ animationDelay: `${150 + i * 150}ms`}}>
-          <Image
-            src={`https://cdn.invisyarcticfox.uk/art/${art.file}`} alt={art.file}
-            inferSize loading={i < 4 ? 'eager' : 'lazy'}
-            style={{
-              backgroundImage: `url(https://cdn.invisyarcticfox.uk/art/small/${art.file})`
-            }}
-          />
-          <div class='cap'>
-            <div class="url">
-              <a href={art.artisturl} target="_blank" rel="noopener noreferrer">@{art.artist}</a>
-            </div>
-            <div class="date">
-              {art.date}
+      d.map((art, i:number) => {
+        const platName = art.platform
+        const icnName = `si${platName.charAt(0).toUpperCase()}${platName.slice(1)}` as keyof typeof icn
+        const icon = icn[icnName] as unknown as { hex: string; path: string; }
+
+        return (
+          <div class='art' style={{ animationDelay: `${100 + i * 100}ms`}}>
+            <Image
+              src={`${cdnurl}/mid/${art.file}`} alt={art.file}
+              inferSize loading={ i < 8 ? 'eager' : 'lazy' }
+              style={{
+                backgroundImage: `url(${cdnurl}/small/${art.file})`
+              }}
+            />
+            <div class='cap'>
+              <div class='url'>
+                <a href={art.artisturl} target='_blank' rel='noopener noreferrer' title={`${art.platform} - ${art.artist}`}>
+                  <svg viewBox='0 0 24 24'>
+                    <path d={icon.path} fill='currentColor' />
+                  </svg>/{art.artist}
+                </a>
+              </div>
+              <div class='date'>{art.date}</div>
             </div>
           </div>
-        </div>
-      ))
+        )
+      })
     }
   </div>
 </Layout>

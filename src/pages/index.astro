@@ -4,9 +4,19 @@ import Spotify from '@/components/Spotify.astro';
 import SocialIcns from '@/components/SocialIcns.astro';
 import Links from '@/components/Links.astro';
 import { Image } from 'astro:assets';
+import * as icn from 'simple-icons'
 
 import avt from '@/assets/avatar.png';
 import '@/styles/index.scss';
+
+
+const socLinks = [
+  { href: 'https://discord.com/user/470193291053498369', ...icn.siDiscord },
+  { href: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter },
+  { href: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky },
+  { href: 'https://t.me/invisyarcticfox', ...icn.siTelegram },
+  { href: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, name: 'email' },
+];
 
 const aLinks = [
   { name: 'photography', link: 'https://instagram.com/lucasm.photography', isExt: true },
@@ -34,7 +44,7 @@ const bLinks = [
         <div class='user'>@invisyarcticfox</div>
       </div>
     </div>
-    <SocialIcns />
+    <SocialIcns links={socLinks} />
     <Spotify />
     <Links links={aLinks} cap='arts' />
     <Links links={bLinks} cap='socials' />

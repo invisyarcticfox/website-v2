@@ -3,11 +3,11 @@ import Layout from '@/layouts/Layout.astro'
 import Fort from '@/components/Fort.astro'
 import '@/styles/comps/fort.scss'
 
-type charInfo = {
+type charInfo = Array<{
   char: string;
   names: string[];
   stDelIn: number;
-}[]
+}>
 
 const res = await fetch('https://api.invisyarcticfox.uk/fortography')
 const charData:charInfo = await res.json()

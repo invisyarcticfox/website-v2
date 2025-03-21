@@ -21,7 +21,14 @@
   &.dim {
     opacity: .5;
     filter: grayscale(50%);
-    .icon:hover { transform: none }
+    .icon{
+      &:hover {
+        transform: none
+      }
+      .link {
+        cursor: default;
+      }
+    }
   }
 
   .icon {

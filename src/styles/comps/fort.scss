@@ -1,5 +1,9 @@
 @use '../vars' as *;
 
+#cont {
+  width: calc(100% - 50px);
+  font-size: 0;
+}
 
 .char {
   width: 100%;

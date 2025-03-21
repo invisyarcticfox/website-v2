@@ -1,28 +1,20 @@
 ---
-import * as icn from 'simple-icons';
 import '@/styles/comps/socialicns.scss'
 import IcnLink from './IcnLink.astro';
 
-type SocialIcn = {
-  href: string;
-  name?: string;
-  slug: string;
-  path: string;
-  hex: string;
-  title: string;
+interface Props {
+  links: {
+    href: string;
+    path: string;
+    hex: string;
+    slug: string;
+    name?: string;
+  }[]
 }
-
-const links:SocialIcn[] = [
-  { href: 'https://discord.com/user/470193291053498369', ...icn.siDiscord },
-  { href: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter },
-  { href: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky },
-  { href: 'https://t.me/invisyarcticfox', ...icn.siTelegram },
-  { href: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, name: 'email' },
-];
-
+const { links } = Astro.props
 ---
 
-<div id="socials" style={{'--c': links.length}}>
+<div id="socials">
   {
     links.map(({ href, path, slug, hex, name }) => (
 			<IcnLink href={href} title={name || slug} icn={{ path, hex}} />
