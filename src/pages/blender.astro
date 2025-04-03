@@ -6,31 +6,29 @@ import '@/styles/blender.scss'
 ---
 
 <Layout>
-  <div id='cont'>
-    <ArtVideo
-      title='Lip sync test with Fennix voice lines'
-      src='invisy/fennix.mp4' width={45} ytlink='hZL3odpFyyU'
-    />
-    <ArtVideo
-      title='3 of the hardest things for people to say'
-      src='invisy/sauce.mp4' width={65} ytlink='ajl42INodxA'
-    />
-    <ArtVideo
-      title='New Movie'
-      src='invisy/newmovie.mp4' width={65} ytlink='LyUtEVZJePs'
-    />
-    <ArtVideo title='Car Chase' src='misc/carchase.mp4' width={65} muted>
-      <div>car models from <a href='https://blendermarket.com/products/rbc-addon'>RBC</a> by aka studios</div>
-      <div>also used <a href='https://extensions.blender.org/add-ons/camera-shakify/'>camera shakify</a></div>
-    </ArtVideo>
-    <div class='divider'></div>
-    <div id='item' class="mixamo">
-      <video width='49%' src='https://cdn.invisyarcticfox.uk/work/mixamo/m_throwc.mp4' controls muted></video>
-      <video width='49%' src='https://cdn.invisyarcticfox.uk/work/mixamo/m_throwp.mp4' controls muted></video>
-    </div>
-    <ArtMixamo flnm='mixamo/m_phone' count={3} />
-    <ArtMixamo flnm='mixamo/m_string' count={3}>
-      model and mocap from <a href="https://www.mixamo.com">mixamo</a>
-    </ArtMixamo>
+  <ArtVideo
+    title='Lip sync test with Fennix voice lines'
+    src='invisy/fennix.mp4' width={45} ytlink='hZL3odpFyyU'
+  />
+  <ArtVideo
+    title='3 of the hardest things for people to say'
+    src='invisy/sauce.mp4' width={65} ytlink='ajl42INodxA'
+  />
+  <ArtVideo
+    title='New Movie'
+    src='invisy/newmovie.mp4' width={65} ytlink='LyUtEVZJePs'
+  />
+  <ArtVideo title='Car Chase' src='misc/carchase.mp4' width={65} muted>
+    <div>car models from <a href='https://blendermarket.com/products/rbc-addon'>RBC</a> by aka studios</div>
+    <div>also used <a href='https://extensions.blender.org/add-ons/camera-shakify/'>camera shakify</a></div>
+  </ArtVideo>
+  <div class='divider'></div>
+  <div id='item' class="mixamo">
+    <video width='49%' src='https://cdn.invisyarcticfox.uk/work/mixamo/m_throwc.mp4' controls muted></video>
+    <video width='49%' src='https://cdn.invisyarcticfox.uk/work/mixamo/m_throwp.mp4' controls muted></video>
   </div>
+  <ArtMixamo flnm='mixamo/m_phone' count={3} />
+  <ArtMixamo flnm='mixamo/m_string' count={3}>
+    model and mocap from <a href="https://www.mixamo.com">mixamo</a>
+  </ArtMixamo>
 </Layout>

@@ -4,39 +4,38 @@ import { Image } from "astro:assets";
 import avt from "@/assets/avatar.png";
 ---
 
-<Layout title="404 Not found">
-  <div id="error">
+<Layout>
+  <div class="error">
     <Image
       src={avt} alt={'avt'}
       width={256} loading={'eager'}
       quality={'high'}
-      style={{
-        aspectRatio: '1/1',
-        borderRadius: '25%',
-        border: '5px #555 solid',
-        filter: 'saturate(50%)'
-      }}
     />
     <p class="err"><b>404: Not found</b></p>
-    <p class="path">Path: <span class="pth">/404</span></p>
+    <p class="path">Path: <span>/404</span></p>
   </div>
 </Layout>
 
 <style is:inline>
-  #error {
+  .error {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 85vh;
     text-align: center;
   }
-
+  img {
+    height: auto;
+    border-radius: 25%;
+    border: 5px #555 solid;
+    filter: saturate(50%);
+  }
   p {
     margin: 5px 0;
     font-size: 30px;
   }
-  p.path {
+  .path {
     font-size: 25px;
     background: #333;
     padding: 5px 10px;
@@ -47,12 +46,12 @@ import avt from "@/assets/avatar.png";
     font-family: monospace;
     font-weight: bold;
   }
-
   footer { display: none; }
 </style>
 
-<script lang="js" is:inline>
-  const urlPth = decodeURIComponent(window.location.pathname)
-  document.querySelector('span.pth').textContent = urlPth
-  document.title += ` (${urlPth})`
+<script is:inline>
+  const urlPth = window.location.pathname
+  console.log(urlPth)
+  document.querySelector('.path span').textContent = urlPth
+  document.title = `ERR 404 (${urlPth})`
 </script>

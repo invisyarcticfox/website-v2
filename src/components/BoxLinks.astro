@@ -1,0 +1,46 @@
+---
+import icnData from '@/data/icons.json'
+import type { Icons } from '@/types';
+import '@/styles/comps/boxlinks.scss'
+
+interface Props {
+  head: string;
+  links: {
+    href: string;
+    title: string;
+    slug?: string;
+    path?: string;
+    hex?: string;
+    cstmIcn?: string;
+    isExt?: boolean;
+  }[]
+}
+const { head, links } = Astro.props
+---
+
+
+<div class='links'>
+  <div class="head">{head}</div>
+  {
+    links.map(({ href, title, slug, path, hex, cstmIcn, isExt }) => {
+      const icon = cstmIcn ? (icnData as Icons)[cstmIcn] : null;
+      const icnPth = icon ? icon.path : path
+      const icnHx = icon ? icon.hex : hex
+
+      return (
+        <a
+          href={href} target={isExt ? '_blank' : undefined}
+          rel='noopener noreferrer'
+          style={{
+            borderColor: `#${icnHx}`
+          }}
+        >
+          <svg viewBox='0 0 24 24'>
+            <path d={icnPth} fill={`#${icnHx}`} />
+          </svg>
+          <span>{title || slug}</span>
+        </a>
+      )
+    })
+  }
+</div>

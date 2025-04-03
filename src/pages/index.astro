@@ -1,52 +1,50 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Spotify from '@/components/Spotify.astro';
-import SocialIcns from '@/components/SocialIcns.astro';
-import Links from '@/components/Links.astro';
-import { Image } from 'astro:assets';
+import Layout from '@/layouts/Layout.astro'
+import BoxLinks from '@/components/BoxLinks.astro'
+import { Image } from 'astro:assets'
 import * as icn from 'simple-icons'
+import { Volume2Icon } from 'astro-feather'
+import type { Links } from '@/types'
 
-import avt from '@/assets/avatar.png';
-import '@/styles/index.scss';
+import avt from '@/assets/avatar.png'
+import '@/styles/index.scss'
 
-
-const socLinks = [
-  { href: 'https://discord.com/user/470193291053498369', ...icn.siDiscord },
-  { href: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter },
-  { href: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky },
-  { href: 'https://t.me/invisyarcticfox', ...icn.siTelegram },
-  { href: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, name: 'email' },
-];
-
-const aLinks = [
-  { name: 'photography', link: 'https://instagram.com/lucasm.photography', isExt: true },
-  { name: 'fortography', link: './fortography' },
-  { name: 'animations', link: './blender' },
-  { name: 'sona art', link: './sonaart' }
+const socLinks:Links[] = [
+  { href: 'https://discord.com/users/470193291053498369', ...icn.siDiscord, isExt: true },
+  { href: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter, isExt: true },
+  { href: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky, isExt: true },
+  { href: 'https://t.me/invisyarcticfox', ...icn.siTelegram, isExt: true },
+  { href: 'https://instagram.com/lucas.mcq_/', ...icn.siInstagram, isExt: true },
+  { href: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, isExt: true, title: 'email' },
 ]
-const bLinks = [
-  { name: 'instagram', link: 'https://instagram.com/lucasm.photography', isExt: true },
-  { name: 'last.fm', link: 'https://www.last.fm/user/invisyarcticfox', isExt: true },
-  { name: 'steam', link: 'https://steamcommunity.com/id/invisyarcticfox', isExt: true },
-  { name: 'letterboxd', link: 'https://boxd.it/8RngF', isExt: true }
+const artLinks:Links[] = [
+  { href: 'https://instagram.com/lucasm.photography', ...icn.siInstagram, title: 'photography', isExt: true },
+  { href: './fortography', title: 'fortography', cstmIcn: 'fortnite' },
+  { href: './blender', ...icn.siBlender, title: 'animations', },
+  { href: './sonaart', ...icn.siFurrynetwork , title: 'sona art',},
 ]
 ---
 
 <Layout>
-  <div id='cont'>
-    <div class='avt'>
-      <Image
-        src={avt} alt={'avt'}
-        width={256} loading={'eager'} quality={'high'}
-      />
-      <div class='names'>
-        <div class='first'>Lucas.</div>
-        <div class='user'>@invisyarcticfox</div>
-      </div>
+  <div class='prof'>
+    <Image src={avt} alt={'avt'} width={256} loading={'eager'} quality={'high'}/>
+    <div class='names'>
+      <div class='first'>Lucas.</div>
+      <div class="ipa">ˈluːkəs <Volume2Icon /></div>
+      <div class='user'>@invisyarcticfox</div>
     </div>
-    <SocialIcns links={socLinks} />
-    <Spotify />
-    <Links links={aLinks} cap='arts' />
-    <Links links={bLinks} cap='socials' />
   </div>
+  <BoxLinks head='social' links={socLinks} />
+  <BoxLinks head='arts' links={artLinks} />
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const elem = document.querySelector('.names .ipa svg')
+    const aud = new Audio('/lucas.mp3')
+
+    elem?.addEventListener('click', function () {
+      aud.play()
+    })
+  })
+</script>
