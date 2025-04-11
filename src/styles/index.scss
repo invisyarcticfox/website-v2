@@ -3,7 +3,7 @@
   padding-top: 50px;
 
   img {
-    width: 40%;
+    width: 45%;
     height: auto;
     aspect-ratio: 1/1;
     border-radius: 50%;
@@ -16,21 +16,6 @@
     .first {
       font-weight: bold;
       font-size: 30px;
-    }
-    .ipa {
-      font-size: 20px;
-      margin: -2px 0 2px;
-      opacity: .9;
-      svg {
-        width: 22px;
-        height: 22px;
-        vertical-align: bottom;
-        cursor: pointer;
-        transition: transform 200ms ease;
-        &:active {
-          transform: scale(.9);
-        }
-      }
     }
     .user {
       font-size: 25px;

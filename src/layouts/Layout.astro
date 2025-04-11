@@ -1,20 +1,23 @@
 ---
-import { ClientRouter } from 'astro:transitions'
+interface Props {
+	title?: string;
+}
+const { title } = Astro.props
+const PgTt = title ? `ItAF - ${title}` : Astro.url
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<ClientRouter />
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/png' href='/favicon.png' />
 		<meta name='generator' content={Astro.generator} />
-		<title>{Astro.url}</title>
+		<title>{PgTt}</title>
 		<link rel="stylesheet" href="/master.css">
 		<link rel="canonical" href={Astro.url}>
 		<link rel="sitemap" href="/sitemap.xml">
-		<meta name='title' content={Astro.url}>
+		<meta name='title' content={PgTt}>
 		<meta name='description' content='a gay fox that likes military aviation :3'>
 		<meta name='keywords' content='blender, animation, photography, sona art, furry, invisyarcticfox, invisy arcticfox'>
 		<meta name='image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
@@ -28,7 +31,7 @@ import { ClientRouter } from 'astro:transitions'
 		<meta name='revisit-after' content='30 days'>
 
 		<meta property='og:type' content='website'>
-		<meta property='og:title' content={Astro.url}>
+		<meta property='og:title' content={PgTt}>
 		<meta property='og:description' content='a gay fox that likes military aviation :3'>
 		<meta property='og:url' content={Astro.url}>
 		<meta property='og:image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
@@ -36,7 +39,7 @@ import { ClientRouter } from 'astro:transitions'
 		<meta name='twitter:card' content='summary_large_image'>
 		<meta name='twitter:site' content='@invisyarcticfox'>
 		<meta name='twitter:creator' content='@invisyarcticfox'>
-		<meta name='twitter:title' content={Astro.url}>
+		<meta name='twitter:title' content={PgTt}>
 		<meta name='twitter:description' content='a gay fox that likes military aviation :3'>
 		<meta name='twitter:image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
 	</head>

@@ -1,3 +1,5 @@
+@use '../extras' as *;
+
 .links {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -24,18 +26,26 @@
     background-color: var(--ctp-mantle); 
     border: 2px solid var(--ctp-base); 
     border-radius: 6px;
-    &:hover {
-      svg {
-        transform: scale(1.2);
-      }
-    }
+    @include SvgHover;
     svg {
       $sz: 30px;
       width: $sz;
       height: $sz;
       flex-shrink: 0;
-      transform: scale(1);
-      transition: transform 200ms ease;
     }
-  }  
+  }
+
+  @include mobile {
+    font-size: 16px;
+    .head {
+      font-size: 20px;
+    }
+    a {
+      svg {
+        $sz: 25px;
+        width: $sz;
+        height: $sz;
+      }
+    }
+  }
 }

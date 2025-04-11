@@ -1,3 +1,5 @@
+@use './extras' as *;
+
 #cont {
   text-align: left;
   width: calc(100% - 50px);
@@ -36,11 +38,7 @@
       float: left;
       a {
         text-decoration: none;
-        &:hover {
-          svg {
-            transform: scale(1.15);
-          }
-        }
+        @include SvgHover;
         svg {
           position: relative;
           width: 25px;
@@ -48,14 +46,21 @@
           vertical-align: middle;
           bottom: 2px;
           margin-right: 2px;
-          transform: scale(1);
-          transition: transform 200ms ease;
         }
       }
 
     }
     .date {
       float: right;
+    }
+  }
+
+  @include mobile {
+    & {
+      width: calc(100% - ($m * 2));
+    }
+    .cap {
+      font-size: 18px;
     }
   }
 }

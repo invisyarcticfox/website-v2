@@ -1,3 +1,5 @@
+@use './extras' as *;
+
 #cont {
   width: calc(100% - 50px);
   font-size: 0;
@@ -24,6 +26,13 @@
     img {
       width: 100%;
       height: 100%;
+    }
+  }
+
+  @include mobile {
+    a {
+      $m: 4px;
+      width: calc(50% - ($m * 2));
     }
   }
 }

@@ -3,7 +3,6 @@ import Layout from '@/layouts/Layout.astro'
 import BoxLinks from '@/components/BoxLinks.astro'
 import { Image } from 'astro:assets'
 import * as icn from 'simple-icons'
-import { Volume2Icon } from 'astro-feather'
 import type { Links } from '@/types'
 
 import avt from '@/assets/avatar.png'
@@ -20,31 +19,19 @@ const socLinks:Links[] = [
 const artLinks:Links[] = [
   { href: 'https://instagram.com/lucasm.photography', ...icn.siInstagram, title: 'photography', isExt: true },
   { href: './fortography', title: 'fortography', cstmIcn: 'fortnite' },
-  { href: './blender', ...icn.siBlender, title: 'animations', },
+  { href: './animations', ...icn.siBlender, title: 'animations', },
   { href: './sonaart', ...icn.siFurrynetwork , title: 'sona art',},
 ]
 ---
 
-<Layout>
+<Layout title='index'>
   <div class='prof'>
     <Image src={avt} alt={'avt'} width={256} loading={'eager'} quality={'high'}/>
     <div class='names'>
       <div class='first'>Lucas.</div>
-      <div class="ipa">ˈluːkəs <Volume2Icon /></div>
       <div class='user'>@invisyarcticfox</div>
     </div>
   </div>
-  <BoxLinks head='social' links={socLinks} />
+  <BoxLinks head='socials' links={socLinks} />
   <BoxLinks head='arts' links={artLinks} />
 </Layout>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const elem = document.querySelector('.names .ipa svg')
-    const aud = new Audio('/lucas.mp3')
-
-    elem?.addEventListener('click', function () {
-      aud.play()
-    })
-  })
-</script>

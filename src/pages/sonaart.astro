@@ -1,6 +1,4 @@
 ---
-export const prerender = false
-
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import * as icn from 'simple-icons'
@@ -12,7 +10,7 @@ const d:sonaArt = await res.json();
 const cdnurl = 'https://cdn.invisyarcticfox.uk/art'
 ---
 
-<Layout>
+<Layout title='sona art'>
   {
     d.map((art, i:number) => {
       const platName = art.platform

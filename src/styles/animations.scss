@@ -1,0 +1,52 @@
+@use './extras' as *;
+
+#cont {
+  width: 75%;
+  padding-top: 35px;
+  font-size: 0;
+}
+
+#item {
+  margin-bottom: 50px;
+  &.mixamo {
+    margin-bottom: 15px;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 30px;
+    margin: 10px 0;
+  }
+  video, img {
+    margin: 3px;
+  }
+  .notes {
+    margin-top: 5px;
+    font-size: 25px;
+  }
+}
+
+.divider {
+  width: 85%;
+  height: 2px;
+  background: var(--ctp-overlay2);
+  margin: 20px auto;
+}
+
+
+@include mobile {
+  #item {
+    .title {
+      font-size: 22px;
+    }
+    video {
+      width: 90%;
+    }
+    img {
+      width: 31% !important;
+    }
+    .notes {
+      font-size: 20px;
+    }
+  }
+}
