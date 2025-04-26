@@ -16,5 +16,11 @@ export default defineConfig({
   },
   adapter: cloudflare({
     imageService: 'compile'
-  })
+  }),
+  redirects: {
+    '/blender': {
+      status: 308,
+      destination: '/animations'
+    }
+  }
 });

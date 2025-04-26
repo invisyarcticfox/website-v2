@@ -1,23 +1,13 @@
 ---
 import icnData from '@/data/icons.json'
-import type { Icons } from '@/types';
-import '@/styles/comps/boxlinks.scss'
+import type { Icons, Links } from '@/types'
 
 interface Props {
   head: string;
-  links: {
-    href: string;
-    title: string;
-    slug?: string;
-    path?: string;
-    hex?: string;
-    cstmIcn?: string;
-    isExt?: boolean;
-  }[]
+  links: Links[]
 }
 const { head, links } = Astro.props
 ---
-
 
 <div class='links'>
   <div class="head">{head}</div>
@@ -38,7 +28,7 @@ const { head, links } = Astro.props
           <svg viewBox='0 0 24 24'>
             <path d={icnPth} fill={`#${icnHx}`} />
           </svg>
-          <span>{title || slug}</span>
+          <span>{title || cstmIcn || slug}</span>
         </a>
       )
     })

@@ -2,27 +2,31 @@
 import Layout from '@/layouts/Layout.astro';
 import { Image } from 'astro:assets';
 import * as icn from 'simple-icons'
-import type { sonaArt } from '@/types';
+import type { sonaArt, Icons } from '@/types';
+import icnData from '@/data/icons.json'
 import '@/styles/sonaart.scss';
 
 const res = await fetch('https://api.invisyarcticfox.uk/sonaart');
 const d:sonaArt = await res.json();
-const cdnurl = 'https://cdn.invisyarcticfox.uk/art'
+const lclIcns = icnData as Icons
 ---
 
 <Layout title='sona art'>
   {
     d.map((art, i:number) => {
-      const platName = art.platform
-      const icnName = `si${platName.charAt(0).toUpperCase()}${platName.slice(1)}` as keyof typeof icn
-      const icon = icn[icnName] as unknown as { hex: string; path: string; }
+      const platName = art.platform.toLowerCase();
+      const customIcon = lclIcns[platName];
+      const icon = customIcon
+        ? customIcon
+        : icn[`si${platName.charAt(0).toUpperCase()}${platName.slice(1)}` as keyof typeof icn] as { path:string; hex:string };
+
       return (
         <div class='art' style={{ animationDelay: `${100 + i * 100}ms`}}>
           <Image
-            src={`${cdnurl}/mid/${art.file}`} alt={art.file}
+            src={`https://cdn.invisyarcticfox.uk/art/mid/${art.file}`} alt={art.file}
             inferSize loading={ i < 8 ? 'eager' : 'lazy' }
             style={{
-              backgroundImage: `url(${cdnurl}/small/${art.file})`
+              backgroundImage: `url(https://cdn.invisyarcticfox.uk/art/small/${art.file})`
             }}
           />
           <div class='cap'>
@@ -33,7 +37,7 @@ const cdnurl = 'https://cdn.invisyarcticfox.uk/art'
                 title={`${art.platform} - ${art.artist}`}
                 >
                 <svg viewBox='0 0 24 24'>
-                  <path d={icon.path} fill="currentColor" />
+                  <path d={icon?.path} fill="currentColor" />
                 </svg>/{art.artist}
               </a>
             </div>

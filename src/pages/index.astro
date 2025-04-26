@@ -4,23 +4,22 @@ import BoxLinks from '@/components/BoxLinks.astro'
 import { Image } from 'astro:assets'
 import * as icn from 'simple-icons'
 import type { Links } from '@/types'
-
 import avt from '@/assets/avatar.png'
 import '@/styles/index.scss'
 
 const socLinks:Links[] = [
   { href: 'https://discord.com/users/470193291053498369', ...icn.siDiscord, isExt: true },
-  { href: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter, isExt: true },
+  { href: 'https://twitter.com/invisyarcticfox', cstmIcn: 'twitter', isExt: true },
   { href: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky, isExt: true },
   { href: 'https://t.me/invisyarcticfox', ...icn.siTelegram, isExt: true },
-  { href: 'https://instagram.com/lucas.mcq_/', ...icn.siInstagram, isExt: true },
-  { href: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, isExt: true, title: 'email' },
+  { href: 'https://blog.invisyarcticfox.uk', ...icn.siBrevo, title: 'blog', isExt: true },
+  { href: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, title: 'email', isExt: true, },
 ]
 const artLinks:Links[] = [
+  { href: './sonaart', ...icn.siFurrynetwork , title: 'sona art',},
+  { href: './animations', ...icn.siBlender, title: 'animations', },
   { href: 'https://instagram.com/lucasm.photography', ...icn.siInstagram, title: 'photography', isExt: true },
   { href: './fortography', title: 'fortography', cstmIcn: 'fortnite' },
-  { href: './animations', ...icn.siBlender, title: 'animations', },
-  { href: './sonaart', ...icn.siFurrynetwork , title: 'sona art',},
 ]
 ---
 

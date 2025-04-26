@@ -1,25 +1,77 @@
+@use './extras' as *;
+
 #cont {
   width: 512px;
-  padding-top: 50px;
+  padding-top: 40px;
+}
 
-  img {
-    width: 45%;
-    height: auto;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    outline: 5px solid var(--ctp-green);
+
+img {
+  width: 45%;
+  height: auto;
+  border-radius: 50%;
+  outline: 5px solid var(--ctp-green);
+}
+
+.names {
+  margin-top: 5px;
+
+  .first {
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .user {
+    font-size: 25px;
+    font-style: italic;
+  }
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 20px auto 0;
+  font-size: 24px;
+
+  .head {
+    grid-column: span 2;
+    font-weight: bold;
+    font-size: 28px;
+    text-transform: uppercase;
   }
 
-  .names {
-    margin-top: 5px;
-
-    .first {
-      font-weight: bold;
-      font-size: 30px;
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px; 
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    background-color: var(--ctp-mantle); 
+    border: 2px solid var(--ctp-base); 
+    border-radius: 6px;
+    @include SvgHover;
+    svg {
+      $sz: 30px;
+      width: $sz;
+      height: $sz;
+      flex-shrink: 0;
     }
-    .user {
-      font-size: 25px;
-      font-style: italic;
+  }
+
+  @include mobile {
+    font-size: 16px;
+    .head {
+      font-size: 20px;
+    }
+    a {
+      svg {
+        $sz: 25px;
+        width: $sz;
+        height: $sz;
+      }
     }
   }
 }

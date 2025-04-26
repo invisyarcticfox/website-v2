@@ -1,19 +1,3 @@
-export type lanyardRes = {
-  data: {
-    spotify: {
-      track_id: string
-      timestamps: {
-        start: number
-        end: number
-      }
-      song: string
-      artist: string
-      album_art_url: string
-      album: string
-    } | null
-  }
-}
-
 export type sonaArt = Array<{
   artist: string;
   artisturl: string;
@@ -29,20 +13,23 @@ export type charInfo = Array<{
   stDelIn: number;
 }>
 
+
+import icnData from '@/data/icons.json'
+type icnKeys = keyof typeof icnData
+
 export type Links = {
   href: string;
   slug?: string;
   path?: string;
   hex?: string;
-  title: string;
+  title?: string;
   isExt?: boolean;
-  cstmIcn?: string;
+  cstmIcn?: icnKeys;
 }
 
-type IconData = {
-  path: string;
-  hex: string;
-}
 export type Icons = {
-  [key: string]: IconData
+  [key: string]: { // Index signature
+    path: string;
+    hex: string;
+  }
 }
