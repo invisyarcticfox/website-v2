@@ -6,12 +6,36 @@
 }
 
 
-img {
+.pfp {
+  position: relative;
+  margin: 0 auto;
   width: 45%;
-  height: auto;
-  border-radius: 50%;
-  outline: 5px solid var(--ctp-green);
+  .avt {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    outline: 5px solid var(--ctp-green);
+  }
+  .popper {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    visibility: hidden;
+    animation: Bday 1s ease-in-out forwards infinite;
+    transform-origin: bottom left;
+  }
 }
+
+
+@keyframes Bday {
+  0%, 100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+}
+
 
 .names {
   margin-top: 5px;

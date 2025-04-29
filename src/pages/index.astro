@@ -1,10 +1,13 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import BoxLinks from '@/components/BoxLinks.astro'
+
 import { Image } from 'astro:assets'
 import * as icn from 'simple-icons'
-import type { Links } from '@/types'
+
 import avt from '@/assets/avatar.png'
+import partypopper from '@/assets/partypopper.png'
+import type { Links } from '@/types'
 import '@/styles/index.scss'
 
 const socLinks:Links[] = [
@@ -25,12 +28,32 @@ const artLinks:Links[] = [
 
 <Layout title='index'>
   <div class='prof'>
-    <Image src={avt} alt={'avt'} width={256} loading={'eager'} quality={'high'}/>
+    <div class="pfp">
+      <Image
+        class={'avt'} src={avt} alt={'avt'}
+        width={256} loading={'eager'} quality={'high'}
+        title={'pfp by @eutumned!'}
+      />
+      <Image
+        class={'popper'} src={partypopper} alt={'popper'}
+        width={64} loading={'eager'} quality={'mid'}
+        title={'its my birthday!!'}
+      />
+    </div>
     <div class='names'>
       <div class='first'>Lucas.</div>
       <div class='user'>@invisyarcticfox</div>
     </div>
   </div>
-  <BoxLinks head='socials' links={socLinks} />
-  <BoxLinks head='arts' links={artLinks} />
+  <BoxLinks head='social stuff' links={socLinks} />
+  <BoxLinks head='cool arts' links={artLinks} />
+
+  <script>
+    const day = new Date()
+    const isMayFourth = (day.getMonth() === 4 && day.getDate() === 4)
+    // funny js, months are counted from 0 but dates arent :)
+    console.log(isMayFourth)
+    const popperImg = document.querySelector('.pfp .popper') as HTMLElement
+    popperImg.style.visibility = isMayFourth ? 'visible' : 'hidden'
+  </script>
 </Layout>
