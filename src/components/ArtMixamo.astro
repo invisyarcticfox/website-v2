@@ -2,13 +2,12 @@
 import { Image } from 'astro:assets'
 
 interface Props {
-  flnm: string;
-  count: number;
+  flnm: string
+  count: number
 }
 const { flnm, count = 1 } = Astro.props
 
 const images = []
-const wdthPerc = Math.floor(100 / count) - 1
 
 for (let i = 0; i < count; i++) {
   const src = `https://cdn.invisyarcticfox.uk/work/${flnm}${i + 1}.png`
@@ -16,17 +15,17 @@ for (let i = 0; i < count; i++) {
   images.push({ src, alt })
 }
 ---
-<div id="item" class="mixamo">
+<div id='item' class='mixamo'>
   {
     images.map((image) => (
       <Image
         src={image.src} alt={image.alt}
         inferSize loading={'lazy'}
-        style={{width: `${wdthPerc}%`, height: 'auto', aspectRatio: '9/16'}}
+        style={{ width: '32%', height: 'auto', margin: '0 5px' }}
         />
     ))
   }
-  <div class="notes">
+  <div>
     <slot />
   </div>
 </div>

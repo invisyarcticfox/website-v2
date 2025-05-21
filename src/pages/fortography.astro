@@ -1,48 +1,45 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import { Image } from 'astro:assets'
-import type { charInfo } from '@/types'
-import '@/styles/fort.scss'
+import type { fort } from '@/types'
 
 const res = await fetch('https://api.invisyarcticfox.uk/fortography')
-const charData:charInfo = await res.json()
+const d:fort = await res.json()
 
-let linkIndex = 0
-let imgIndex = 0
+import '@/styles/fortography.scss'
+let delayCount = 0
 ---
 
 <Layout title='fortography'>
   {
-    charData.map((info) => (
-      <div class={`char ${info.char}`}>
-        {
-          info.names.map((name) => {
-            const calculatedDelay = 100 + linkIndex * 100
-            const egrLd = imgIndex < 12
-            imgIndex++
-            linkIndex++
+    d.map(({ char, slug, names}) => {
+      const cdnUrl = 'https://cdn.invisyarcticfox.uk/fortography'
 
-            return (
-              <a
-                href={`https://cdn.invisyarcticfox.uk/fortography/${info.char}/big/${name}.png`}
-                target='_blank'
-                rel='noopener noreferrer'
-                style={{
-                  animationDelay: `${calculatedDelay}ms`,
-                }}
-              >
-                <Image
-                  src={`https://cdn.invisyarcticfox.uk/fortography/${info.char}/small/${name}.png`}
-                  alt={name}
-                  width={480}
-                  height={270}
-                  loading={egrLd ? 'eager' : 'lazy'}
-                />
-              </a>
-            )
-          })
-        }
-      </div>
-    ))
+      return (
+        <div class={`char ${char}`}>
+          <div class='nm'>{slug}</div>
+          {
+            names.map((name) => {
+              const animDelay = 100 + delayCount * 100
+              const egrLd = delayCount < 12
+              delayCount++
+              
+              return (
+                <a
+                  href={`${cdnUrl}/${char}/big/${name}.png`}
+                  target='_blank' rel='noopener noreferrer'
+                  style={{ animationDelay: `${animDelay}ms`}}
+                >
+                  <Image
+                    src={`${cdnUrl}/${char}/small/${name}.png`} alt={name}
+                    inferSize loading={ egrLd ? 'eager' : 'lazy' }
+                  />
+                </a>
+              )
+            })
+          }
+        </div>
+      )
+    })
   }
 </Layout>

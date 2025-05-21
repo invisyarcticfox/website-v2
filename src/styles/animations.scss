@@ -1,52 +1,37 @@
-@use './extras' as *;
-
 #cont {
   width: 75%;
-  padding-top: 35px;
-  font-size: 0;
+  text-align: center;
+  margin: 0 auto;
 }
+
 
 #item {
-  margin-bottom: 50px;
+  margin: 25px 0 50px;
   &.mixamo {
-    margin-bottom: 15px;
+    &:last-child { margin: 0 0 50px };
+    margin: 0;
   }
-
   .title {
     font-weight: bold;
-    font-size: 30px;
-    margin: 10px 0;
-  }
-  video, img {
-    margin: 3px;
-  }
-  .notes {
-    margin-top: 5px;
-    font-size: 25px;
+    font-size: 32px;
+    margin: 5px 0;
   }
 }
 
-.divider {
-  width: 85%;
-  height: 2px;
-  background: var(--ctp-overlay2);
-  margin: 20px auto;
+.sep {
+  width: 75%;
+  height: 3px;
+  margin: 0 auto;
+  background: var(--fg2);
 }
 
 
-@include mobile {
+@media screen and (max-width: 500px) {
+  #cont { width: 90vw; }
   #item {
-    .title {
-      font-size: 22px;
-    }
-    video {
-      width: 90%;
-    }
-    img {
-      width: 31% !important;
-    }
-    .notes {
-      font-size: 20px;
+    .title { font-size: 28px; }
+    &.mixamo {
+      img { margin: 0 2px !important; }
     }
   }
 }

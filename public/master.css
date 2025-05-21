@@ -1,9 +1,22 @@
-@import url('./_ctp-mocha.css');
+@import url('./catppuccin.css');
+
 
 :root {
-  --bg: var(--ctp-crust);
-  --fg: var(--ctp-text);
-  --fg2: var(--ctp-overlay2);
+  --bg: var(--ctp-mocha-crust);
+  --bg2: var(--ctp-mocha-base);
+  --fg: var(--ctp-mocha-text);
+  --fg2: var(--ctp-mocha-subtext0);
+  --acc: var(--ctp-mocha-green)
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: var(--ctp-latte-crust);
+    --bg2: var(--ctp-latte-base);
+    --fg: var(--ctp-latte-text);
+    --fg2: var(--ctp-latte-subtext0);
+    --acc: var(--ctp-latte-green)
+  }
 }
 
 
@@ -16,28 +29,18 @@
 body {
   margin: 0;
   padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 28px;
   color: var(--fg);
   background: var(--bg);
-  font-family: Arial, Helvetica, sans-serif;
 }
-
-
-#cont {
-  font-size: 25px;
-  text-align: center;
-  padding: 25px 0;
-  margin: 0 auto;
-}
-@media screen and (max-width: 500px) { #cont { width: 95% !important; } }
 
 a {
   color: var(--fg);
-  transition-property: color;
-  transition-duration: 200ms;
-  transition-timing-function: ease;
-}
-a:hover {
-  color: var(--fg2)
+  transition: color 200ms ease;
+  &:hover {
+    color: var(--acc);
+  }
 }
 
 

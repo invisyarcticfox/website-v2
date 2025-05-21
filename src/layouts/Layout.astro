@@ -1,29 +1,26 @@
 ---
-interface Props {
-	title?: string;
-}
+interface Props { title?: string }
 const { title } = Astro.props
 const PgTt = title ? `ItAF - ${title}` : Astro.url
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang='en'>
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/png' href='/favicon.png' />
 		<meta name='generator' content={Astro.generator} />
 		<title>{PgTt}</title>
-		<link rel="stylesheet" href="/master.css">
-		<link rel="canonical" href={Astro.url}>
-		<link rel="sitemap" href="/sitemap.xml">
+		<link rel='stylesheet' href='/master.css'>
+		<link rel='canonical' href={Astro.url}>
+		<link rel='sitemap' href='/sitemap-index.xml'>
+
 		<meta name='title' content={PgTt}>
-		<meta name='description' content='a gay fox that likes military aviation :3'>
-		<meta name='keywords' content='blender, animation, photography, sona art, furry, invisyarcticfox, invisy arcticfox'>
+		<meta name='description' content='an arctic fox on the internet that likes military aviation :3'>
+		<meta name='keywords' content='invisyarcticfox, invisy arcticfox, invisy arctic fox'>
 		<meta name='image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
 		<meta name='author' content='invisyarcticfox'>
-
-		<meta name='viewport' content='width=device-width, initial-scale=1.0'>
 		<meta name='theme-color' content='#00aa00'>
 		<meta name='robots' content='index, follow'>
 		<meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
@@ -32,7 +29,7 @@ const PgTt = title ? `ItAF - ${title}` : Astro.url
 
 		<meta property='og:type' content='website'>
 		<meta property='og:title' content={PgTt}>
-		<meta property='og:description' content='a gay fox that likes military aviation :3'>
+		<meta property='og:description' content='an arctic fox on the internet that likes military aviation :3'>
 		<meta property='og:url' content={Astro.url}>
 		<meta property='og:image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
 
@@ -40,11 +37,11 @@ const PgTt = title ? `ItAF - ${title}` : Astro.url
 		<meta name='twitter:site' content='@invisyarcticfox'>
 		<meta name='twitter:creator' content='@invisyarcticfox'>
 		<meta name='twitter:title' content={PgTt}>
-		<meta name='twitter:description' content='a gay fox that likes military aviation :3'>
+		<meta name='twitter:description' content='an arctic fox on the internet that likes military aviation :3'>
 		<meta name='twitter:image' content='https://cdn.invisyarcticfox.uk/img/embedbanner.png'>
 	</head>
 	<body>
-		<div id="cont">
+		<div id='cont'>
 			<slot />
 		</div>
 	</body>

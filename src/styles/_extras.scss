@@ -1,17 +1,9 @@
-@mixin SvgHover {
-  &:hover {
-    svg {
-      transform: scale(1.15);
-    }
-  }
-  svg {
-    transform: scale(1);
-    transition: transform 200ms ease;
-  }
+@mixin transition($props...) {
+  transition-property: $props;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
 }
 
-@mixin mobile {
-  @media screen and (max-width: 500px) {
-    @content;
-  }
+@mixin anim($name) {
+  animation: $name 1s 0s forwards ease-in-out;
 }

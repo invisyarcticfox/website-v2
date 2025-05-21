@@ -1,9 +1,10 @@
 @use './extras' as *;
 
+
 #cont {
-  text-align: left;
-  width: calc(100% - 50px);
+  padding: 25px;
 }
+
 
 .art {
   $m: 5px;
@@ -12,9 +13,8 @@
   width: calc(25% - ($m * 2));
   vertical-align: middle;
   margin: 0 $m 50px;
-
   opacity: 0;
-  animation: animUp 1s forwards ease-in-out;
+  @include anim(animUp);
   
   img {
     display: block;
@@ -22,10 +22,11 @@
     width: 100%;
     height: auto;
   }
-  .cap {
+
+  .info {
     position: absolute;
-    font-size: 22px;
     font-weight: bold;
+    font-size: 25px;
     text-align: left;
     padding: 10px;
     left: 0;
@@ -33,34 +34,15 @@
     bottom: 0;
     background: color-mix(in srgb, var(--bg) 75%, transparent);
     backdrop-filter: blur(5px);
-
-    .url {
-      float: left;
-      a {
-        text-decoration: none;
-        @include SvgHover;
-        svg {
-          position: relative;
-          width: 25px;
-          height: 25px;
-          vertical-align: middle;
-          bottom: 2px;
-          margin-right: 2px;
-        }
-      }
-
-    }
-    .date {
-      float: right;
-    }
+    .artist { float: left; }
+    .date { float: right; }
   }
+}
 
-  @include mobile {
-    & {
-      width: calc(100% - ($m * 2));
-    }
-    .cap {
-      font-size: 18px;
-    }
+
+@media screen and (max-width: 500px) {
+  .art {
+    width: 100%;
+    .info { font-size: 15px; }
   }
 }

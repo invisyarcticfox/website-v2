@@ -1,59 +1,72 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import BoxLinks from '@/components/BoxLinks.astro'
-
 import { Image } from 'astro:assets'
 import * as icn from 'simple-icons'
+import type { social, ext } from '@/types'
 
 import avt from '@/assets/avatar.png'
-import partypopper from '@/assets/partypopper.png'
-import type { Links } from '@/types'
+import popper from '@/assets/popper.svg'
 import '@/styles/index.scss'
 
-const socLinks:Links[] = [
-  { href: 'https://discord.com/users/470193291053498369', ...icn.siDiscord, isExt: true },
-  { href: 'https://twitter.com/invisyarcticfox', cstmIcn: 'twitter', isExt: true },
-  { href: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky, isExt: true },
-  { href: 'https://t.me/invisyarcticfox', ...icn.siTelegram, isExt: true },
-  { href: 'https://blog.invisyarcticfox.uk', ...icn.siBrevo, title: 'blog', isExt: true },
-  { href: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, title: 'email', isExt: true, },
+const socials:social = [
+  { link: 'https://discord.com/users/470193291053498369', ...icn.siDiscord },
+  { link: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter },
+  { link: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky },
+  { link: 'https://t.me/invisyarcticfox', ...icn.siTelegram },
+  { link: 'https://instagram.com/lucas.mcq_ ', ...icn.siInstagram },
+  { link: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, tt: 'email' },
+  // i dont use mail.ru, just a nice icon
 ]
-const artLinks:Links[] = [
-  { href: './sonaart', ...icn.siFurrynetwork , title: 'sona art',},
-  { href: './animations', ...icn.siBlender, title: 'animations', },
-  { href: 'https://instagram.com/lucasm.photography', ...icn.siInstagram, title: 'photography', isExt: true },
-  { href: './fortography', title: 'fortography', cstmIcn: 'fortnite' },
+const extlinks:ext = [
+  { link: 'https://blog.invisyarcticfox.uk', txt: 'blog', isExt: true },
+  { link: './sonaart', txt: 'sona art' },
+  { link: './animations', txt: 'animations' },
+  { link: 'https://instagram.com/lucasm.photography', txt: 'photography', isExt: true },
+  { link: './fortography', txt: 'fortography' },
 ]
 ---
 
 <Layout title='index'>
   <div class='prof'>
-    <div class="pfp">
+    <div class='imgs'>
       <Image
-        class={'avt'} src={avt} alt={'avt'}
-        width={256} loading={'eager'} quality={'high'}
-        title={'pfp by @eutumned!'}
+        class={'pfp'}
+        src={avt} alt={'avatar'}
+        width={360} loading={'eager'}
+        quality={'high'}
       />
       <Image
-        class={'popper'} src={partypopper} alt={'popper'}
-        width={64} loading={'eager'} quality={'mid'}
-        title={'its my birthday!!'}
+        class={'popper'} title={'its my birthday!!'}
+        src={popper} alt={'popper'}
       />
     </div>
-    <div class='names'>
-      <div class='first'>Lucas.</div>
-      <div class='user'>@invisyarcticfox</div>
-    </div>
+    <div class='nm'>Lucas.</div>
+    <div class='user'>@invisyarcticfox</div>
   </div>
-  <BoxLinks head='social stuff' links={socLinks} />
-  <BoxLinks head='cool arts' links={artLinks} />
+    
+  <div class='socials'>
+    {
+      socials.map(({ link, tt, path, slug }) => {
+        const title = tt?.toUpperCase() || slug.toUpperCase()
+        
+        return (
+          <a href={link} target='_blank' rel='noopener noreferrer' aria-label={title}>
+            <svg viewBox='0 0 24 24'>
+              <path d={path} fill='currentColor' />
+            </svg>
+          </a>
+        )
+      })
+    }
+  </div>
+  <div class='links'>
+    {
+      extlinks.map(({ link, txt, isExt }) => (
+        <a href={link} target={isExt ? '_blank' : null} rel='noopener noreferrer'>{txt}</a>
+      ))
+    }
+  </div>
 
-  <script>
-    const day = new Date()
-    const isMayFourth = (day.getMonth() === 4 && day.getDate() === 4)
-    // funny js, months are counted from 0 but dates arent :)
-    console.log(isMayFourth)
-    const popperImg = document.querySelector('.pfp .popper') as HTMLElement
-    popperImg.style.visibility = isMayFourth ? 'visible' : 'hidden'
-  </script>
+  <script src='../scripts/mayFourth.ts' />
+  <script src='../scripts/lanyard.ts' />
 </Layout>

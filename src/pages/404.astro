@@ -1,18 +1,19 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import avt from "@/assets/avatar.png";
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import avt from '@/assets/avatar.png'
 ---
 
 <Layout>
-  <div class="error">
+  <div class='error'>
     <Image
       src={avt} alt={'avt'}
       width={256} loading={'eager'}
-      quality={'high'}
+      quality={'mid'}
     />
-    <p class="err"><b>404: Not found</b></p>
-    <p class="path">Path: <span>/404</span></p>
+    <p class='err'><b>404: Not found</b></p>
+    <p class='path'>Path: <span>/404</span></p>
+    <p class='back'><a href='#' onclick='history.back()'>back</a></p>
   </div>
 </Layout>
 
@@ -26,10 +27,10 @@ import avt from "@/assets/avatar.png";
     text-align: center;
   }
   img {
-    height: auto;
     border-radius: 25%;
-    border: 5px #555 solid;
+    border: 5px var(--fg2) solid;
     filter: saturate(50%);
+    box-sizing: border-box;
   }
   p {
     margin: 5px 0;
@@ -37,21 +38,20 @@ import avt from "@/assets/avatar.png";
   }
   .path {
     font-size: 25px;
-    background: #333;
+    background: var(--bg2);
     padding: 5px 10px;
     border-radius: 10px;
-    border: 2px #555 solid;
+    border: 2px var(--fg2) solid;
   }
   .path span {
     font-family: monospace;
     font-weight: bold;
   }
-  footer { display: none; }
 </style>
 
-<script is:inline>
+<script>
   const urlPth = window.location.pathname
-  console.log(urlPth)
-  document.querySelector('.path span').textContent = urlPth
+  const pathElem = document.querySelector('.path span') as HTMLElement
+  pathElem.textContent = urlPth
   document.title = `ERR 404 (${urlPth})`
 </script>

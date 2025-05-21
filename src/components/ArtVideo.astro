@@ -1,24 +1,20 @@
 ---
 interface Props {
-  title: string;
-  src: string;
-  ytlink?: string;
-  width: number;
-  muted?: boolean;
+  title: string
+  src: string
+  ytId?: string
+  width: number
 }
-const { title, src, ytlink, width, muted } = Astro.props
+const { title, src, ytId, width } = Astro.props
 ---
 
 <div id='item'>
   <div class='title'>{title}</div>
-  <video
-    width={`${width}%`} src={`https://cdn.invisyarcticfox.uk/work/${src}`}
-    controls muted={muted ? true : undefined}
-  />
-  <div class='notes'>
+  <video src={`https://cdn.invisyarcticfox.uk/work/${src}`} controls width={`${width}%`} />
+  <div>
     {
-      ytlink ? (
-        <a href={`https://youtu.be/${ytlink}`} target='_blank' rel='noopener noreferrer'>audio source</a>
+      ytId ? (
+        <a href={`https://youtu.be/${ytId}`} target='_blank' rel='noopener noreferrer'>audio source</a>
       ) : (
         <slot />
       )
