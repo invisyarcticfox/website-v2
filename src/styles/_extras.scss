@@ -7,3 +7,9 @@
 @mixin anim($name) {
   animation: $name 1s 0s forwards ease-in-out;
 }
+
+@mixin mobile($width:500px) {
+  @media screen and (max-width:$width) {
+    @content
+  }
+}

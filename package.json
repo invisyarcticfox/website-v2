@@ -1,11 +1,12 @@
 {
   "name": "website-v2",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "npm run build && wrangler pages dev ./dist",
+    "preview": "npx astro build && wrangler pages dev",
+    "deploy": "npx astro build && npx wrangler deploy",
     "astro": "astro"
   },
   "dependencies": {
@@ -14,7 +15,9 @@
     "astro": "^5.7.13",
     "sass": "^1.89.0",
     "sharp": "^0.34.2",
-    "simple-icons": "^11.15.0",
-    "wrangler": "^4.16.0"
+    "simple-icons": "^11.15.0"
+  },
+  "devDependencies": {
+    "wrangler": "^4.19.1"
   }
 }

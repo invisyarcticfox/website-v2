@@ -1,6 +1,6 @@
 export type social = Array<{
   link: string
-  tt?: string
+  txt?: string
   path: string
   slug: string
 }>

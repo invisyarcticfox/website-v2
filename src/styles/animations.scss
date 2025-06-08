@@ -1,3 +1,6 @@
+@use './extras' as *;
+
+
 #cont {
   width: 75%;
   text-align: center;
@@ -26,12 +29,10 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@include mobile {
   #cont { width: 90vw; }
   #item {
     .title { font-size: 28px; }
-    &.mixamo {
-      img { margin: 0 2px !important; }
-    }
+    &.mixamo img { margin: 0 2px !important; }
   }
 }

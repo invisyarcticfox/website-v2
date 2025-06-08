@@ -40,9 +40,9 @@
 }
 
 
-@media screen and (max-width: 500px) {
+@include mobile {
   .art {
     width: 100%;
-    .info { font-size: 15px; }
+    .info { font-size: 18px; }
   }
 }

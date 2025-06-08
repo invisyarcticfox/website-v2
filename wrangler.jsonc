@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "web",
+  "compatibility_date": "2025-06-07",
+  "assets": { "directory": "./dist" },
+  "routes": [
+		{
+			"pattern": "invisyarcticfox.uk",
+			"custom_domain": true
+		}
+	]
+}
