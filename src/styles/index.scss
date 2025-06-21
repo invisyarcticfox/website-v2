@@ -2,8 +2,9 @@
 
 
 #cont {
-  width: 50vw;
-  margin: 80px auto;
+  width: 40vw;
+  margin: 0 auto;
+  padding-top: 125px;
   text-align: center;
 }
 
@@ -47,7 +48,6 @@
   justify-content: center;
   gap: 12px;
   margin: 10px auto;
-  width: 100%;
   a {
     $sz: 50px;
     position: relative;
@@ -81,6 +81,7 @@
     svg {
       width: 100%;
       height: 100%;
+      fill: currentColor;
       transform: scale(1);
       @include transition(transform);
     }
@@ -101,11 +102,12 @@
     &::before {
       content: '';
       position: absolute;
-      left: 25%;
-      right: 25%;
-      bottom: -2px;
+      left: 35%;
+      right: 35%;
+      bottom: 0;
       height: 3px;
-      background: var(--fg);
+      background: var(--fg2);
+      z-index: -1;
       @include transition(left, right, background);
     }
   }
@@ -125,7 +127,7 @@
 @include mobile {
   #cont {
     width: 75vw;
-    margin: 35px auto;
+    padding-top: 50px;
   }
 
   .prof .imgs { width: 75%; }

@@ -43,12 +43,11 @@ const links:ext = [
     
   <div class='socials'>
     {
-      socials.map(({ link, txt, path, slug }) => (
-        <a href={link} target='_blank' rel='noopener noreferrer' aria-label={(txt || slug).toUpperCase()}>
-          <svg viewBox='0 0 24 24'>
-            <path d={path} fill='currentColor' />
-          </svg>
-        </a>
+      socials.map(({ link, txt, svg, slug }) => (
+        <a
+          href={link} target='_blank' rel='noopener noreferrer'
+          aria-label={(txt || slug).toUpperCase()} set:html={svg}
+        />
       ))
     }
   </div>
