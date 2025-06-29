@@ -10,14 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.5.3",
-    "@astrojs/sitemap": "^3.4.0",
-    "astro": "^5.7.13",
-    "sass": "^1.89.0",
-    "sharp": "^0.34.2",
-    "simple-icons": "^11.15.0"
+    "@astrojs/cloudflare": "^12.6.0",
+    "astro": "^5.10.1",
+    "sass": "^1.89.2"
   },
   "devDependencies": {
-    "wrangler": "^4.19.1"
+    "wrangler": "^4.21.1"
   }
 }

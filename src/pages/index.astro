@@ -1,64 +1,13 @@
 ---
-import Layout from '@/layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro'
 import { Image } from 'astro:assets'
-import * as icn from 'simple-icons'
-import type { social, ext } from '@/types'
-
-import avt from '@/assets/avatar.png'
-import Popper from '@/assets/popper.svg'
-import '@/styles/index.scss'
-
-const socials:social = [
-  { link: 'https://discord.com/users/470193291053498369', ...icn.siDiscord },
-  { link: 'https://twitter.com/invisyarcticfox', ...icn.siTwitter },
-  { link: 'https://bsky.app/profile/invisyarcticfox.uk', ...icn.siBluesky },
-  { link: 'https://t.me/invisyarcticfox', ...icn.siTelegram },
-  { link: 'https://instagram.com/lucas.mcq_ ', ...icn.siInstagram },
-  { link: 'mailto:lucas@invisyarcticfox.uk', ...icn.siMaildotru, txt: 'email' },
-  // i dont use mail.ru, just a nice icon
-]
-const links:ext = [
-  { link: 'https://blog.invisyarcticfox.uk', txt: 'blog', isExt: true },
-  { link: './sonaart', txt: 'sona art' },
-  { link: './animations', txt: 'animations' },
-  { link: 'https://instagram.com/lucasm.photography', txt: 'photography', isExt: true },
-  { link: './fortography', txt: 'fortography' },
-]
 ---
 
-<Layout title='index'>
-  <div class='prof'>
-    <div class='imgs'>
-      <Image
-        class={'pfp'}
-        src={avt} alt={'avatar'}
-        width={360} loading={'eager'}
-        quality={'high'}
-      />
-      <Popper class={'popper'} />
-    </div>
-    <div class='nm'>Lucas.</div>
-    <div class='user'>@invisyarcticfox</div>
-  </div>
-    
-  <div class='socials'>
-    {
-      socials.map(({ link, txt, svg, slug }) => (
-        <a
-          href={link} target='_blank' rel='noopener noreferrer'
-          aria-label={(txt || slug).toUpperCase()} set:html={svg}
-        />
-      ))
-    }
-  </div>
-  <div class='links'>
-    {
-      links.map(({ link, txt, isExt }) => (
-        <a href={link} target={isExt ? '_blank' : null} rel='noopener noreferrer'>{txt}</a>
-      ))
-    }
-  </div>
-
-  <script src='../scripts/mayFourth.ts' />
-  <script src='../scripts/lanyard.ts' />
+<Layout title={'index'}>
+  invisyarcticfox
+  <Image
+    src={'/favicon.png'} alt={'favicon'}
+    width={16} height={16}
+    style={{ verticalAlign: 'middle', bottom: '1px', position: 'relative' }}
+  />
 </Layout>
