@@ -1,0 +1,65 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import GearList from '@/components/GearList.astro'
+import { Image } from 'astro:assets'
+
+import type { GearStuff } from '@types'
+import '@/styles/gear.scss'
+
+const cameraGear:GearStuff = [
+  { label: 'model', name: 'Canon EOS R50' },
+  { label: 'lenses', content: [{ name: '18-45mm' }, { name: '55-210mm' }] },
+  { label: 'mic', name: 'RØDE VideoMicro II' },
+  { label: 'tripod', name: 'Velbon EX-440' },
+]
+
+const pcSpecs:GearStuff = [
+  { label: 'mobo', name: 'MSI PRO-Z690-A WIFI' },
+  { label: 'cpu', name: 'Intel Core i9-12900K' },
+  { label: 'gpu', name: 'NVIDIA GeForce RTX 4070Ti' },
+  { label: 'ram', name: 'Kingston FURY Beast DDR5' },
+  { label: 'ssd', content: [{ name: 'Intel SSDPEKNW' }, { name: 'Crucial M.2 2280' }] },
+  { label: 'monitors', content: [{ name: 'MSI G27C4 E2' }, { name: 'HP Z24I'}] },
+  { label: 'mouse', name: 'Logitech G502 Hero' },
+  { label: 'keyboard', name: 'Lenovo SK-8825 (ISO)' },
+  { label: 'mic', name: 'MAONO AU-A04' },
+  { label: 'headphones', name: 'Sennheiser IE-200' },
+]
+
+import eosr50 from '@/assets/cam/eos-r50.png'
+import r5018 from '@/assets/cam/18-45mm.png'
+import r5055 from '@/assets/cam/55-210mm.png'
+import vmii from '@/assets/cam/vmii.png'
+import ex440 from '@/assets/cam/ex-440.png'
+
+import ao4 from '@/assets/pc/au-ao4.png'
+import g502 from '@/assets/pc/g502.png'
+import ie200 from '@/assets/pc/ie200.png'
+---
+
+<Layout>
+  <div class='head'>Gear and Specs</div>
+  <div id='lr'>
+    <div class='column left'>
+      <div class='title'>camera</div>
+      <div class='info'><GearList gear={cameraGear} /></div>
+      <div class='sep' />
+      <div class='gallery'>
+        <Image src={eosr50} alt={'eosr50'} width={256} loading={'eager'} />
+        <Image src={r5018} alt={'r5018'} width={256} loading={'eager'} />
+        <Image src={r5055} alt={'r5055'} width={256} loading={'eager'} />
+        <Image src={vmii} alt={'vmii'} width={256} loading={'eager'} />
+        <Image src={ex440} alt={'ex440'} width={256} loading={'eager'} />
+      </div>
+    </div>
+    <div class='column right'>
+      <div class='title'>computer</div>
+      <div class='info'><GearList gear={pcSpecs} /></div>
+      <div class='sep' />
+      <div class='gallery'>
+        <Image src={g502} alt={'g502'} width={256} loading={'eager'} />
+        <Image src={ao4} alt={'ao4'} width={256} loading={'eager'} />
+        <Image src={ie200} alt={'ie200'} width={256} loading={'eager'} />
+      </div>
+  </div>
+</Layout>

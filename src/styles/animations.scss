@@ -1,0 +1,10 @@
+main { width: 50%; text-align: center; margin: 0 auto; }
+
+
+.item {
+  &:first-of-type { margin-top: 15px; }
+  margin: 40px 0;
+  .title { font-size: 1.25em; margin: 10px 0; }
+  video { width: 100%; height: auto; }
+  img { width: 100%; height: auto; }
+}

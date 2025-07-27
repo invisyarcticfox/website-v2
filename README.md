@@ -1,4 +1,6 @@
-# A rewrite of my website using [**Astro**](https://astro.build) and hosted on [**Cloudflare Pages**](https://pages.cloudflare.com/)
+# My Website :3
+### Using [**Astro**](https://astro.build) and hosted on [**Cloudflare Workers**](https://https://workers.cloudflare.com/)
 
+###
 
-[old website archive](https://github.com/invisyarcticfox/invisyarcticfox.github.io)
+[*old website archive*](https://github.com/invisyarcticfox/invisyarcticfox.github.io)

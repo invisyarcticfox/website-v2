@@ -1,0 +1,24 @@
+---
+interface Props {
+  title: string
+  src: string
+  ytId?: string
+  width?: number
+}
+const { title, src, ytId, width } = Astro.props
+---
+
+<div class='item'>
+  <div class='title'><b>{title}</b></div>
+  <video
+    src={`https://cdn.invisyarcticfox.uk/work/${src}`} controls
+    style={{ width: width ? `${width}%` : undefined }}
+    />
+  <div class='info'>
+    {
+      ytId ? (
+        <a href={`https://youtu.be/${ytId}`} target='_blank' rel='noopener noreferrer'>audio source</a>
+      ) : ( <slot /> )
+    }
+  </div>
+</div>

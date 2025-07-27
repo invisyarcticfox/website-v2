@@ -1,0 +1,27 @@
+---
+interface Props {
+  links: {
+    link: string
+    txt: string
+    ext?: boolean
+    b?: boolean
+  }[]
+}
+const { links } = Astro.props
+---
+
+<ul>
+  {
+    links.map(({ link, txt, ext=true, b=false }) => (
+      <li>
+        <a
+          href={link}
+          class='noline'
+          target={ ext ? '_blank' : undefined }
+          rel='noopener noreferrer'>
+            { b ? ( <b>{txt}</b> ) : txt }
+        </a>
+      </li>
+    ))
+  }
+</ul>

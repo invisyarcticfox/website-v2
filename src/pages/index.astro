@@ -1,13 +1,58 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from '@/layouts/Layout.astro'
+import LinkList from '@/components/LinkList.astro'
 import { Image } from 'astro:assets'
+
+import type { GhRes, Link } from '@types'
+import { siAstro, siCloudflareworkers } from 'simple-icons'
+
+import avt from '@avatar'
+import '@/styles/index.scss'
+
+const socials:Link = [
+  { link: 'https://blog.invisyarcticfox.uk', txt: 'blog', ext: false, b: true },
+  { link: 'https://twitter.com/invisyarcticfox', txt: 'twitter' },
+  { link: 'https://bsky.app/profile/invisyarcticfox.uk', txt: 'bluesky' },
+  { link: 'https://discord.com/users/470193291053498369', txt: 'discord' },
+  { link: 'mailto:lucas@invisyarcticfox.uk', txt: 'email' },
+]
+const links:Link = [
+  { link: './about', txt: 'about', ext: false },
+  { link: './sonaart', txt: 'sona art', ext: false },
+  { link: './animations', txt: 'animations', ext: false },
+  { link: 'https://instagram.com/lucasm.photography', txt: 'photography' },
+  { link: './gear', txt: 'gear and specs', ext: false },
+]
+
+const res = await fetch('https://api.github.com/repos/invisyarcticfox/website-v2/commits')
+const d:GhRes = await res.json()
+const gh = { sha: d[0].sha.slice(0,7), url: d[0].html_url }
 ---
 
-<Layout title={'index'}>
-  invisyarcticfox
-  <Image
-    src={'/favicon.png'} alt={'favicon'}
-    width={16} height={16}
-    style={{ verticalAlign: 'middle', bottom: '1px', position: 'relative' }}
-  />
+<Layout>
+  <div id='pfp'>
+    <Image src={avt} alt={'avt'} width={512} quality={'high'} loading={'eager'} title={'art by @eutumned'} />
+    <div class='txt'>
+      <div class='fn'>Lucas.</div>
+      <div class='un'><i>@invisyarcticfox</i></div>
+      <div class='b'>animator - photographer - wannabe film crewmember</div>
+    </div>
+  </div>
+
+  <div class='links'>
+    <LinkList links={socials} />
+    <LinkList links={links} />
+  </div>
+
+  <footer>
+    <span>
+      <a href='https://astro.build' target='_blank' rel='noopener noreferrer' set:html={siAstro.svg} /> &
+      <a href='https://workers.cloudflare.com/' target='_blank' rel='noopener noreferrer' set:html={siCloudflareworkers.svg} />
+    </span>
+    |
+    <span class='commit'>
+      <a class='noline' href={gh.url} target='_blank' rel='noopener noreferrer'>{gh.sha}</a>
+      v2.0.0
+    </span>
+  </footer>
 </Layout>

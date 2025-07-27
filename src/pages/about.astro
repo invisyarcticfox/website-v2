@@ -1,0 +1,112 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+
+import portrait from '@/assets/portrait.png'
+import letterboxd from '@/assets/about/letterboxd.png'
+import steam from '@/assets/about/steam.png'
+
+import '@/styles/about.scss'
+---
+
+<Layout>
+  <div class='head'>About Me</div>
+  <div class='cont'>
+    <Image class={'portrait'} src={portrait} height={720} alt={'portrait'} quality={'max'} loading={'eager'} />
+    <div class='text border'>
+      <div style='margin: 10px 0 20px; font-size: 1.3em;'>
+        Hey, I'm <b>Lucas</b>. I'm an animator, photographer, and a wannabe film crewmember.
+      </div>
+      <div>
+        I animate in
+        <a href='https://blender.org' target='_blank' rel='noopener noreferrer'>Blender</a>,
+        often referencing memes and making my
+        <a href='./sonaart' rel='noopener noreferrer'>sona</a> do weird things.
+        Those, of course, can be found
+        <a href='./animations' rel='noopener noreferrer'>here</a>.
+        <br>
+        But I often just delete the renders anyway so there's not actually much to see.
+      </div>
+      <div>
+        I also do some photography too! I mostly take pictures of military planes at airshows
+        as planes are a <b><i>BIG</i></b> interest of mine, like <b>a LOT</b>.
+        <br>
+        If I even hear something flying outside, I <b>WILL</b> be looking outside or on a radar.
+        Anyway, those pictures too can be found
+        <a href='https://instagram.com/lucasm.photography' target='_blank' rel='noopener noreferrer'>here</a>.
+        <br>
+        I'm still learning photography, really.
+        I'm entirely self-taught and I've never done any classes or courses about it.
+        Same with animating, I've taught myself as I do it and apart from the odd tutorial, I've never been taught animation.
+      </div>
+      <div>
+        Another big thing I'm into is filmmaking!
+        I'm not too big into being <i>in front</i> of the camera, but being behind one has always seemed cool.
+        <br>
+        Not sure what position I'd want to be in,
+        definitely not a director but being a camera operator or some kind of <i>'___ assistant'</i> would be cool too,
+        maybe perhaps the person that does the clapper board or something!
+        <br>
+        But at the moment, I do some volunteering at a local theatre company which is enough for now!
+        <br>
+        <i>
+          I actually worked on something a few months back at
+          <a href='https://en.wikipedia.org/wiki/Pinewood_Studios' target='_blank' rel='noopener noreferrer'>Pinewood</a>
+          as part of a '98 film's remaster and documentary,
+          I haven't got an IMDB just yet though ;3
+        </i>
+      </div>
+      <div>
+        On the topic of films, I'm not much of a gamer and I've watched more films than games I even own.
+        <br>
+        <Image src={letterboxd} alt={'letterboxd'} height={480} quality={'mid'} loading={'lazy'} />
+        <Image src={steam} alt={'steam'} height={480} quality={'mid'} loading={'lazy'} />
+        I haven't <i>quite</i> logged more hours of watching films than playing games, but it'll probably be close one day.
+        <i>
+          (
+            my <a href='https://letterboxd.com/invisyarcticfox' target='_blank' rel='noopener noreferrer'>letterboxd</a> and
+            <a href='https://steamcommunity.com/id/invisyarcticfox' target='_blank' rel='noopener noreferrer'>steam</a>
+          )
+        </i>
+        <br>
+        I'd say my favourite directors are
+        <a href='https://en.wikipedia.org/wiki/Wes_Anderson' target='_blank' rel='noopener noreferrer'>Wes Anderson</a>
+        and perhaps
+        <a href='https://en.wikipedia.org/wiki/Neill_Blomkamp' target='_blank' rel='noopener noreferrer'>Neill Blomkamp</a>.
+      </div>
+      <div>
+        I listen to a lot of music, and <b>a LOT</b> of different genres.
+        Sometimes the genres can be complete polar opposites.
+        <br>
+        For example, I listen to
+        <a href='https://www.last.fm/music/Kiltro' target='_blank' rel='noopener noreferrer'>Kiltro</a> and
+        <a href='https://www.last.fm/music/Crosa+Rosa' target='_blank' rel='noopener noreferrer'>Crosa Rosa</a>,
+        one is smooth chilean folk while the other is loud psychedelic rock.
+        <br>
+        Another example, I listen to
+        <a href='https://www.last.fm/tag/city+pop' target='_blank' rel='noopener noreferrer'> japanese city pop</a> and
+        <a href='https://www.last.fm/tag/post-punk' target='_blank' rel='noopener noreferrer'>russian post-punk</a>.
+        <i>( my <a href='https://last.fm/user/invisyarcticfox' target='_blank' rel='noopener noreferrer'>last.fm</a> )</i>
+      </div>
+      <div>
+        I watch quite a bit of <a href='https://twith.tv' target='_blank' rel='noopener noreferrer'>Twitch</a>!
+        Two streamers I most often watch are
+        <a href='https://twitch.tv/jameskii' target='_blank' rel='noopener noreferrer'>Jameskii</a> and
+        <a href='https://twitch.tv/weest' target='_blank' rel='noopener noreferrer'>Weest</a>.
+        <i>Aaand that's about it.</i>
+        <br>
+        Obviously I watch quite a bit of
+        <a href='https://youtube' target='_blank' rel='noopener noreferrer'>YouTube</a>.
+        A few favourite people on there are
+        <a href='https://youtube.com/@LEMMiNO' target='_blank' rel='noopener noreferrer'>LEMMiNO</a>,
+        <a href='https://youtube.com/@NeoCranium' target='_blank' rel='noopener noreferrer'>NeoCranium</a> and
+        <a href='https://youtube.com/@JamesLee' target='_blank' rel='noopener noreferrer'>James Lee</a>.
+        <br>
+        Some favourite TV shows of mine are
+        <a href='https://www.imdb.com/title/tt11280740' target='_blank' rel='noopener noreferrer'>Severance</a>,
+        <a href='https://www.imdb.com/title/tt0149460' target='_blank' rel='noopener noreferrer'>Futurama</a> and
+        <a href='https://www.imdb.com/title/tt1865718' target='_blank' rel='noopener noreferrer'>Gravity Falls</a>.
+      </div>
+    </div>
+  </div>
+</Layout>

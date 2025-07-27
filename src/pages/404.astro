@@ -1,0 +1,52 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets';
+import avt from '@avatar'
+---
+
+<Layout>
+  <Image src={avt} alt={'avt'} width={256} quality={'mid'} loading={'eager'} />
+  <h1><span>404:</span> Not found</h1>
+  <pre>Path: <span></span></pre>
+</Layout>
+
+<style lang='scss' is:inline>
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 90vh;
+
+    img {
+      width: calc(256px / 1.5);
+      height: auto;
+      border: 4px solid var(--acc);
+      border-radius: var(--radius);
+      box-sizing: border-box;
+      filter: grayscale(50%);
+    }
+
+    h1 {
+      font-size: 1.2em;
+      margin: 10px 0 0;
+      span { color: var(--acc); }
+    }
+
+    pre {
+      font-size: .8em;
+      margin: 5px 0 0;
+      padding: 2px 8px;
+      border: 1px solid var(--fg);
+      border-radius: 5px;
+      background: hsl(from var(--bg) h s calc(l - 2));
+    }
+  }
+</style>
+
+<script>
+  const urlPth = window.location.pathname
+  const pathElem = document.querySelector('pre span') as HTMLElement
+  pathElem.textContent = urlPth
+</script>

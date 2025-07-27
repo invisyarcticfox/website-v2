@@ -1,0 +1,26 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import BlenderVideo from '@/components/BlenderVideo.astro'
+import BlenderImage from '@/components/BlenderImage.astro'
+
+import '@/styles/animations.scss'
+---
+
+<Layout>
+  <div class='head'>Blender Animations</div>
+
+  <BlenderVideo src={'invisy/fennix.mp4'} title={'Lip sync test'} ytId={'hZL3odpFyyU'} width={75} />
+  <BlenderVideo src={'invisy/yukopi.mp4'} title={'Yukopi - Powerful Wind'} ytId={'D6DVTLvOupE'} />
+  <BlenderVideo src={'misc/carchase.mp4'} title={'Car chase test'}>
+    <div>
+      using
+      <a href='https://superhivemarket.com/products/rbc-addon' target='_blank' rel='noopener noreferrer'>RBC Addon by aka studios</a>
+    </div>
+    <div>
+      and <a href='https://extensions.blender.org/add-ons/camera-shakify/' target='_blank' rel='noopener noreferrer'>camera shakify by ian hubert</a>
+    </div>
+  </BlenderVideo>
+  <BlenderImage src={'invisy/fvf.png'} title={'Friends VS Friends \'Energy Card\''} width={49}>
+    <div><a href='https://friends-vs-friends.fandom.com/wiki/Card_index?file=EnergyDrink.png' target='_blank' rel='noopener noreferrer'>reference image</a></div>
+  </BlenderImage>
+</Layout>

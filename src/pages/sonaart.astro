@@ -1,0 +1,35 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import type { SonaArt } from '@types'
+
+const res = await fetch('https://api.invisyarcticfox.uk/sonaart')
+const d:SonaArt = await res.json()
+
+import '@/styles/sonaart.scss'
+---
+
+<Layout>
+  <div class='head'>Sona Art</div>
+  {
+    d.map(({ artist, file, artisturl, date }, i) => {
+      const cdnUrl = 'https://cdn.invisyarcticfox.uk/art'
+      
+      return (
+        <div class={`art ${artist}`}>
+          <Image
+            src={`${cdnUrl}/mid/${file}`} alt={file}
+            loading={ i < 8 ? 'eager' : 'lazy' } inferSize
+            style={{ backgroundImage: `url(${cdnUrl}/small/${file})` }}
+          />
+          <div class='info'>
+            <div class='artist'>
+              <a href={artisturl} target='_blank' rel='noopener noreferrer'>@{artist}</a>
+              </div>
+            <div class='date'>{date}</div>
+          </div>
+        </div>
+      )
+    })
+  }
+</Layout>

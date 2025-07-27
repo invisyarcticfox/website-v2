@@ -1,0 +1,37 @@
+@import url('https://cdn.jsdelivr.net/npm/@catppuccin/palette/css/catppuccin.css');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import './common.css';
+
+:root {
+  --bg: var(--ctp-mocha-crust);
+  --fg: var(--ctp-mocha-text);
+  --acc: var(--ctp-mocha-green);
+  --trans: 200ms ease;
+  --radius: 25px;
+}
+
+
+::selection {
+  color: var(--bg);
+  background: var(--fg);
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  background: var(--bg);
+  color: var(--fg);
+  min-height: 100vh;
+}
+
+main { padding: 25px; }
+
+
+a {
+  &:hover { color: var(--acc); }
+  color: var(--fg);
+  transition: color var(--trans);
+}
