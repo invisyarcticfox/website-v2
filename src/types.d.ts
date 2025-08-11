@@ -26,6 +26,7 @@ export type SonaArt = Array<{
   artisturl: string
   file: string
   date: string
+  freaky?: boolean
 }>
 
 export type GearStuff = Array<{

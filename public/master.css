@@ -30,8 +30,5 @@ body {
 main { padding: 25px; }
 
 
-a {
-  &:hover { color: var(--acc); }
-  color: var(--fg);
-  transition: color var(--trans);
-}
+a { color: var(--fg); transition: color var(--trans); }
+a:hover { color: var(--acc); }

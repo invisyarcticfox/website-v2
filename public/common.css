@@ -1,22 +1,27 @@
-a.noline {
-  &:hover { text-decoration: underline; }
-  text-decoration: none;
-}
+a.noline { text-decoration: none; }
+a.noline:hover { text-decoration: underline; }
 
 .head {
   --w: 15%;
-  &::after {
-    content: "";
-    display: block;
-    position: relative;
-    width: var(--w);
-    height: 2px;
-    background: var(--fg);
-    top: 0;
-    left: calc(50% - (var(--w) / 2));
-  }
   font-size: 1.5em;
   font-weight: bold;
   margin: 10px 0;
   text-align: center;
+}
+.head::after {
+  content: "";
+  display: block;
+  position: relative;
+  width: var(--w);
+  height: 2px;
+  background: var(--fg);
+  top: 0;
+  left: calc(50% - (var(--w) / 2));
+}
+
+.sep {
+  width: 50%;
+  height: 3px;
+  background: var(--fg);
+  margin: 10px auto;
 }

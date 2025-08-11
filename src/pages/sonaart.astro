@@ -11,12 +11,18 @@ import '@/styles/sonaart.scss'
 
 <Layout>
   <div class='head'>Sona Art</div>
+  <div class='note'>
+    be warned that there
+    <i>might</i>
+    be some freaky stuff ahead.
+    Not nsfw, but just a tad little weird :3
+  </div>
   {
-    d.map(({ artist, file, artisturl, date }, i) => {
+    d.map(({ artist, file, artisturl, date, freaky }, i) => {
       const cdnUrl = 'https://cdn.invisyarcticfox.uk/art'
       
       return (
-        <div class={`art ${artist}`}>
+        <div class={`art ${artist} ${freaky ? 'freaky' : ''}`}>
           <Image
             src={`${cdnUrl}/mid/${file}`} alt={file}
             loading={ i < 8 ? 'eager' : 'lazy' } inferSize
