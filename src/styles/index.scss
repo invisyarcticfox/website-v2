@@ -37,7 +37,25 @@ main { width: 50%; margin: 0 auto; padding-top: 100px; }
     list-style: none;
     padding: 0;
     margin: 0;
-    li { margin: 5px; }
+    li {
+      margin: 5px;
+      a {
+        &.new {
+          position: relative;
+          left: 12px;
+          text-decoration: none;
+          &::after {
+            content: "(!)";
+            color: #f00;
+            vertical-align: top;
+            font-size: .75em;
+            position: relative;
+            left: -5px;
+          }
+          b:hover { text-decoration: underline; }
+        }
+      }
+    }
   }
 }
 

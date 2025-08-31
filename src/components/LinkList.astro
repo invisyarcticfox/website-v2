@@ -16,7 +16,7 @@ const { links } = Astro.props
       <li>
         <a
           href={link}
-          class='noline'
+          class={`noline ${txt === 'blog' ? 'blog' : ''}`}
           target={ ext ? '_blank' : undefined }
           rel='noopener noreferrer'>
             { b ? ( <b>{txt}</b> ) : txt }

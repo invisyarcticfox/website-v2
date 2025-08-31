@@ -2,9 +2,11 @@
 import Layout from '@/layouts/Layout.astro'
 import LinkList from '@/components/LinkList.astro'
 import { Image } from 'astro:assets'
+import { siAstro, siCloudflareworkers } from 'simple-icons'
 
 import type { GhRes, Link } from '@types'
-import { siAstro, siCloudflareworkers } from 'simple-icons'
+import { getCommitInfo } from '@/scripts/getCommitInfo'
+const gh = { sha: await getCommitInfo(false, true), url: await getCommitInfo(true) }
 
 import avt from '@avatar'
 import '@/styles/index.scss'
@@ -23,10 +25,6 @@ const links:Link = [
   { link: 'https://instagram.com/lucasm.photography', txt: 'photography' },
   { link: './gear', txt: 'gear and specs', ext: false },
 ]
-
-const res = await fetch('https://api.github.com/repos/invisyarcticfox/website-v2/commits')
-const d:GhRes = await res.json()
-const gh = { sha: d[0].sha.slice(0,7), url: d[0].html_url }
 ---
 
 <Layout>
@@ -52,7 +50,9 @@ const gh = { sha: d[0].sha.slice(0,7), url: d[0].html_url }
     |
     <span class='commit'>
       <a class='noline' href={gh.url} target='_blank' rel='noopener noreferrer'>{gh.sha}</a>
-      v2.0.1
+      v2.1.0
     </span>
   </footer>
+
+  <script src='../scripts/newBlog.ts' />
 </Layout>
