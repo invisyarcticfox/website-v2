@@ -1,3 +1,6 @@
+@use './mobile' as *;
+
+
 main { width: 80%; margin: 0 auto; text-align: center; }
 
 
@@ -43,6 +46,19 @@ main { width: 80%; margin: 0 auto; text-align: center; }
         border-radius: 15px;
         box-sizing: border-box;
       }
+    }
+  }
+}
+
+
+@include mobile {
+  #lr {
+    display: block;
+    font-size: 1em;
+    .column {
+      width: 100%;
+      margin: 20px 0;
+      .gallery { img { width: 40%; } }
     }
   }
 }

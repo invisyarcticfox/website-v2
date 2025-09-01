@@ -1,3 +1,6 @@
+@use './mobile' as *;
+
+
 main { width: 50%; margin: 0 auto; padding-top: 100px; }
 
 #pfp {
@@ -85,4 +88,15 @@ footer {
       fill: currentColor;
     }
   }
+}
+
+
+@include mobile {
+  main { width: 100%; padding-top: 50px; }
+  #pfp {
+    width: 75%;
+    img { width: 75%; }
+  }
+  .links { width: 85%; }
+  footer { display: none; }
 }

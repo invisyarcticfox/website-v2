@@ -34,3 +34,12 @@ export type GearStuff = Array<{
   name?: string
   content?: { name:string }[]
 }>
+
+export type blogEntries = Array<{
+  title: string
+  id: string
+  body: string
+  date: string
+  readTime: string
+  charCount: string
+}>
