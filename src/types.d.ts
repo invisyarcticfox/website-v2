@@ -43,3 +43,8 @@ export type blogEntries = Array<{
   readTime: string
   charCount: string
 }>
+
+export type discordStatus = {
+  kv: { [key:string]: string }
+  data: { discord_status: 'online' | 'idle' | 'dnd' | 'offline' }
+}

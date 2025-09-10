@@ -6,7 +6,6 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@avatar": ["src/assets/avatar.png"],
       "@types": ["src/types.d.ts"]
     }
   }

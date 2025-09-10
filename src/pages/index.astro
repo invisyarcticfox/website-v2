@@ -8,7 +8,7 @@ import type { GhRes, Link } from '@types'
 import { getCommitInfo } from '@/scripts/getCommitInfo'
 const gh = { sha: await getCommitInfo(false, true), url: await getCommitInfo(true) }
 
-import avt from '@avatar'
+import avt from '@/assets/avatar.png'
 import '@/styles/index.scss'
 
 const socials:Link = [
@@ -16,7 +16,7 @@ const socials:Link = [
   { link: 'https://twitter.com/invisyarcticfox', txt: 'twitter' },
   { link: 'https://bsky.app/profile/invisyarcticfox.uk', txt: 'bluesky' },
   { link: 'https://discord.com/users/470193291053498369', txt: 'discord' },
-  { link: 'mailto:lucas@invisyarcticfox.uk', txt: 'email' },
+  { link: 'https://t.me/invisyarcticfox', txt: 'telegram' },
 ]
 const links:Link = [
   { link: './about', txt: 'about', ext: false },
@@ -27,7 +27,7 @@ const links:Link = [
 ]
 ---
 
-<Layout>
+<Layout title={'index'}>
   <div id='pfp'>
     <Image src={avt} alt={'avt'} width={512} quality={'high'} loading={'eager'} title={'art by @eutumned'} />
     <div class='txt'>
@@ -55,4 +55,5 @@ const links:Link = [
   </footer>
 
   <script src='../scripts/newBlog.ts' />
+  <script src='../scripts/lanyard.ts'></script>
 </Layout>
