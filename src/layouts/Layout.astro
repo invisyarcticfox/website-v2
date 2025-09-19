@@ -1,7 +1,7 @@
 ---
-interface Props { title?: string }
+interface Props { title: string }
 const { title } = Astro.props
-const PgTt = title ? `ItAF - ${title}` : Astro.url
+const PgTt = `ItAF - ${title}`
 ---
 
 <!doctype html>

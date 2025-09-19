@@ -3,8 +3,9 @@ import Layout from '@/layouts/Layout.astro'
 import LinkList from '@/components/LinkList.astro'
 import { Image } from 'astro:assets'
 import { siAstro, siCloudflareworkers } from 'simple-icons'
+import pkg from 'package.json'
 
-import type { GhRes, Link } from '@types'
+import type { Link } from '@types'
 import { getCommitInfo } from '@/scripts/getCommitInfo'
 const gh = { sha: await getCommitInfo(false, true), url: await getCommitInfo(true) }
 
@@ -12,7 +13,7 @@ import avt from '@/assets/avatar.png'
 import '@/styles/index.scss'
 
 const socials:Link = [
-  { link: 'https://blog.invisyarcticfox.uk', txt: 'blog', ext: false, b: true },
+  { link: 'https://blog.invisyarcticfox.uk', txt: 'blog', ext: false },
   { link: 'https://twitter.com/invisyarcticfox', txt: 'twitter' },
   { link: 'https://bsky.app/profile/invisyarcticfox.uk', txt: 'bluesky' },
   { link: 'https://discord.com/users/470193291053498369', txt: 'discord' },
@@ -33,7 +34,7 @@ const links:Link = [
     <div class='txt'>
       <div class='fn'>Lucas.</div>
       <div class='un'><i>@invisyarcticfox</i></div>
-      <div class='b'>animator - photographer - wannabe film crewmember</div>
+      <div class='b'>"animator" - photographer - wannabe film crewmember</div>
     </div>
   </div>
 
@@ -50,7 +51,7 @@ const links:Link = [
     |
     <span class='commit'>
       <a class='noline' href={gh.url} target='_blank' rel='noopener noreferrer'>{gh.sha}</a>
-      v2.1.1
+      v{pkg.version}
     </span>
   </footer>
 

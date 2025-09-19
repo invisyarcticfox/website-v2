@@ -43,19 +43,19 @@ main { width: 50%; margin: 0 auto; padding-top: 100px; }
     li {
       margin: 5px;
       a {
+        &[href="https://blog.invisyarcticfox.uk"] { font-weight: bold; }
         &.new {
           position: relative;
-          left: 12px;
-          text-decoration: none;
+          left: 9px;
           &::after {
             content: "(!)";
             color: #f00;
             vertical-align: top;
             font-size: .75em;
             position: relative;
-            left: -5px;
+            left: 1px;
           }
-          b:hover { text-decoration: underline; }
+          span:hover { text-decoration: underline; }
         }
       }
     }

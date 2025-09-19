@@ -4,7 +4,6 @@ interface Props {
     link: string
     txt: string
     ext?: boolean
-    b?: boolean
   }[]
 }
 const { links } = Astro.props
@@ -12,14 +11,14 @@ const { links } = Astro.props
 
 <ul>
   {
-    links.map(({ link, txt, ext=true, b=false }) => (
+    links.map(({ link, txt, ext=true }) => (
       <li>
         <a
           href={link}
-          class={`noline ${txt === 'blog' ? 'blog' : ''}`}
+          class={'noline'}
           target={ ext ? '_blank' : undefined }
           rel='noopener noreferrer'>
-            { b ? ( <b>{txt}</b> ) : txt }
+            {txt}
         </a>
       </li>
     ))

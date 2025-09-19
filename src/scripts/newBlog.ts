@@ -6,7 +6,7 @@ import type { blogEntries } from '@/types'
       const res = await fetch('https://blog.invisyarcticfox.uk/blogs.json')
       const [latest]:blogEntries = await res.json()
       const lsLastSeen = localStorage.getItem('lastSeenPost')
-      const blogLink = document.querySelector('.links ul li a.blog') as HTMLElement
+      const blogLink = document.querySelector('.links ul li a[href="https://blog.invisyarcticfox.uk"]') as HTMLElement
 
       console.log('latest blog:', latest.id)
       console.log('local storage:', lsLastSeen)
@@ -14,6 +14,7 @@ import type { blogEntries } from '@/types'
       if ( lsLastSeen && lsLastSeen !== latest.id ) {
         blogLink.classList.add('new')
         blogLink.title = 'new blog!'
+        blogLink.innerHTML = `<span>blog</span>`
       }
 
       blogLink.addEventListener('click', () => { localStorage.setItem('lastSeenPost', latest.id) })
