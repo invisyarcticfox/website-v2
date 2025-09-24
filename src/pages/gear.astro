@@ -8,7 +8,7 @@ import '@/styles/gear.scss'
 
 const cameraGear:GearStuff = [
   { label: 'model', name: 'Canon EOS R50' },
-  { label: 'lenses', content: [{ name: '18-45mm' }, { name: '55-210mm' }] },
+  { label: 'lenses', content: [{ name: '18-45mm' }, { name: '55-210mm' }, { name: '100-400mm'}] },
   { label: 'mic', name: 'RØDE VideoMicro II' },
   { label: 'tripod', name: 'Velbon EX-440' },
 ]
@@ -27,8 +27,9 @@ const pcSpecs:GearStuff = [
 ]
 
 import eosr50 from '@/assets/cam/eos-r50.png'
-import r5018 from '@/assets/cam/18-45mm.png'
-import r5055 from '@/assets/cam/55-210mm.png'
+import rf18 from '@/assets/cam/18-45mm.png'
+import rf55 from '@/assets/cam/55-210mm.png'
+import rf100 from '@/assets/cam/100-400mm.png'
 import vmii from '@/assets/cam/vmii.png'
 import ex440 from '@/assets/cam/ex-440.png'
 
@@ -46,10 +47,11 @@ import ie200 from '@/assets/pc/ie200.png'
       <div class='sep' />
       <div class='gallery'>
         <Image src={eosr50} alt={'eosr50'} width={256} loading={'eager'} />
-        <Image src={r5018} alt={'r5018'} width={256} loading={'eager'} />
-        <Image src={r5055} alt={'r5055'} width={256} loading={'eager'} />
         <Image src={vmii} alt={'vmii'} width={256} loading={'eager'} />
         <Image src={ex440} alt={'ex440'} width={256} loading={'eager'} />
+        <Image src={rf18} alt={'r5018'} width={256} loading={'eager'} />
+        <Image src={rf55} alt={'r5055'} width={256} loading={'eager'} />
+        <Image src={rf100} alt={'r5055'} width={256} loading={'eager'} />
       </div>
     </div>
     <div class='column right'>

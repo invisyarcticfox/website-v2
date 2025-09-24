@@ -18,7 +18,7 @@ const { gear } = Astro.props
         content.map(({ name }, i) => (
           <>
             <b>{name}</b>
-            { i < content.length - 1 && ' & ' }
+            { i < content.length - 1 && ', ' }
           </>
         ))
       ) : ( <b>{name}</b> ) }

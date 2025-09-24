@@ -16,7 +16,7 @@ main { width: 80%; margin: 0 auto; text-align: center; }
   .column {
     width: 50%;
     height: 100%;
-    padding: 5px 0;
+    padding: 5px 0 15px;
     box-sizing: border-box;
     background: hsl(from var(--bg) h s calc(l - 1));
     border: 5px solid var(--fg);
