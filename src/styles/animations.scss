@@ -6,10 +6,17 @@ main { width: 50%; text-align: center; margin: 0 auto; }
 
 .item {
   &:first-of-type { margin-top: 15px; }
-  margin: 40px 0;
+  padding: 40px 0;
   .title { font-size: 1.25em; margin: 10px 0; }
-  video { width: 100%; height: auto; }
-  img { width: 100%; height: auto; }
+  video, img { width: 100%; height: auto; }
+  .info {
+    position: relative;
+    top: -7px;
+
+    > div { background: hsl(from var(--bg) h s calc(l / 2)); padding: 5px 10px; }
+    .date { float: left; }
+    .link { float: right; }
+  }
 }
 
 

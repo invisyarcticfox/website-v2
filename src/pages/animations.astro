@@ -1,7 +1,6 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import BlenderVideo from '@/components/BlenderVideo.astro'
-import BlenderImage from '@/components/BlenderImage.astro'
 
 import '@/styles/animations.scss'
 ---
@@ -9,19 +8,16 @@ import '@/styles/animations.scss'
 <Layout title={'animations'}>
   <div class='head'>Blender Animations</div>
 
-  <BlenderVideo src={'invisy/fennix.mp4'} title={'Lip sync test'} ytId={'hZL3odpFyyU'} width={75} />
-  <BlenderVideo src={'invisy/yukopi.mp4'} title={'Yukopi - Powerful Wind'} ytId={'D6DVTLvOupE'} />
-  <BlenderVideo src={'invisy/breen.mp4'} title={'Breen Fucking Loses It'} ytId={'uGc5_7zHzDU'} />
-  <BlenderVideo src={'misc/carchase.mp4'} title={'Car chase test'}>
-    <div>
-      using
-      <a href='https://superhivemarket.com/products/rbc-addon' target='_blank' rel='noopener noreferrer'>RBC Addon by aka studios</a>
-    </div>
-    <div>
-      and <a href='https://extensions.blender.org/add-ons/camera-shakify/' target='_blank' rel='noopener noreferrer'>camera shakify by ian hubert</a>
-    </div>
-  </BlenderVideo>
-  <BlenderImage src={'invisy/fvf.png'} title={'Friends VS Friends \'Energy Card\''} width={49}>
-    <div><a href='https://friends-vs-friends.fandom.com/wiki/Card_index?file=EnergyDrink.png' target='_blank' rel='noopener noreferrer'>reference image</a></div>
-  </BlenderImage>
+  <BlenderVideo src={'invisy/interview.mp4'} title={'I mean I\'m gay.'} ytId={'Vbqh0vXaRLw'} date={'13th October 2025'} />
+  <BlenderVideo src={'invisy/breen.mp4'} title={'Breen Fucking Loses It'} ytId={'uGc5_7zHzDU'} date={'25th August 2025'} />
+  <BlenderVideo src={'invisy/yukopi.mp4'} title={'Yukopi - Powerful Wind'} ytId={'D6DVTLvOupE'} date={'13th July 2025'} />
+  <BlenderVideo
+    src={'misc/carchase.mp4'}
+    title={'Car chase test'}
+    date={'5th April 2025'}
+    links={[
+      { txt: 'RBC Addon by aka studios', link: 'https://superhivemarket.com/products/rbc-addon' },
+      { txt: 'camera shakify by ian hubert', link: 'https://extensions.blender.org/add-ons/camera-shakify' }
+    ]}
+  />
 </Layout>

@@ -4,8 +4,10 @@ interface Props {
   src: string
   ytId?: string
   width?: number
+  date: string
+  links?: { txt:string, link:string }[]
 }
-const { title, src, ytId, width } = Astro.props
+const { title, src, ytId, width, date, links } = Astro.props
 ---
 
 <div class='item'>
@@ -13,12 +15,22 @@ const { title, src, ytId, width } = Astro.props
   <video
     src={`https://cdn.invisyarcticfox.uk/work/${src}`} controls
     style={{ width: width ? `${width}%` : undefined }}
+    onloadstart='this.volume=.5'
     />
   <div class='info'>
-    {
-      ytId ? (
-        <a href={`https://youtu.be/${ytId}`} target='_blank' rel='noopener noreferrer'>audio source</a>
-      ) : ( <slot /> )
-    }
+    <div class='date'>{date}</div>
+    <div class='link'>
+      {
+        ytId ? (
+          <a href={`https://youtu.be/${ytId}`} target='_blank' rel='noopener noreferrer'>audio source</a>
+        ) : (
+          links?.map(({ txt, link}) => (
+            <div>
+              <a href={link} target='_blank' rel='noopener noreferrer'>{txt}</a>
+            </div>
+          ))
+        )
+      }
+    </div>
   </div>
 </div>
