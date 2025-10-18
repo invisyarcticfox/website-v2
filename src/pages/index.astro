@@ -3,11 +3,11 @@ import Layout from '@/layouts/Layout.astro'
 import LinkList from '@/components/LinkList.astro'
 import { Image } from 'astro:assets'
 import { siAstro, siCloudflareworkers } from 'simple-icons'
+import type { Link } from '@types'
 import pkg from 'package.json'
 
-import type { Link } from '@types'
 import { getCommitInfo } from '@/scripts/getCommitInfo'
-const gh = { sha: await getCommitInfo(false, true), url: await getCommitInfo(true) }
+const gh = await getCommitInfo()
 
 import avt from '@/assets/avatar.png'
 import '@/styles/index.scss'

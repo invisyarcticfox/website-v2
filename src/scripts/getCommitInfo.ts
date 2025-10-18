@@ -1,18 +1,22 @@
-import type { GhRes } from '@/types'
+import 'dotenv/config'
+import { Octokit } from 'octokit'
 
-export async function getCommitInfo(url:boolean=false, sha:boolean=false):Promise<string | any> {
-  try {
-    const res = await fetch('https://api.github.com/repos/invisyarcticfox/website-v2/commits')
-    const d:GhRes = await res.json()
 
-    if (url) {
-      console.log( d[0].html_url )
-      return d[0].html_url
-    } else if (sha) {
-      console.log( d[0].sha.slice(0,7) )
-      return d[0].sha.slice(0,7)
-    }
-  } catch (error) {
-    console.error(error)
+const octokit = new Octokit({
+  auth: process.env.GH_API_TOKEN,
+  userAgent: 'invisyarcticfox/websitev2/getCommitInfo',
+  timeZone: 'Europe/London'
+})
+
+export async function getCommitInfo():Promise<{sha:string, url:string}> {
+  const { data: res } = await octokit.request('GET /repos/{owner}/{repo}/commits', {
+    owner: 'invisyarcticfox',
+    repo: 'website-v2',
+    headers: { 'X-GitHub-Api-Version': '2022-11-28' }
+  })
+
+  return {
+    sha: res[0].sha.slice(0,7),
+    url: res[0].html_url
   }
 }
