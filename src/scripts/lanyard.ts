@@ -1,6 +1,9 @@
 import type { discordStatus } from '@/types'
 
 const pfp = document.querySelector('#pfp img') as HTMLElement
+const lfmC = document.querySelector('#pfp .listening') as HTMLElement
+const lfmLink = lfmC!.querySelector('a') as HTMLElement
+const lfmTxt = lfmC!.querySelector('span') as HTMLElement
 
 const statusColours = {
   online: '#23A55A',
@@ -9,17 +12,25 @@ const statusColours = {
   offline: '#80848E'
 }
 
-async function getDiscordStatus() {
+
+async function getStatus() {
   try {
     const res = await fetch('https://api.lanyard.rest/v1/users/470193291053498369')
-    const { data: d }:discordStatus = await res.json()
-    const status = d.discord_status
+    const d:discordStatus = await res.json()
+    const { discord_status, activities } = d.data
+    const lastfm = activities.find(a => a.application_id === '1108588077900898414')
 
-    pfp.style.borderColor = statusColours[status] || statusColours.offline
-    pfp.title = `${status} on discord!`
-    console.log(d)
+    pfp.style.borderColor = statusColours[discord_status as keyof typeof statusColours] || statusColours.offline
+    pfp.title = `${discord_status} on discord!`
+
+    if (lastfm) {
+      const { details:song, name:artist } = lastfm
+      lfmC.style.display = ''
+      lfmLink.setAttribute('href', `https://last.fm/music/${encodeURIComponent(artist)}/_/${encodeURIComponent(song)}`)
+      lfmTxt.innerHTML = `<b>${song}</b> by <b>${artist}</b>`
+    }
   } catch (error) {
     console.error(error)
   }
 }
-getDiscordStatus()
+getStatus()

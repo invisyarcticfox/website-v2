@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro'
 import LinkList from '@/components/LinkList.astro'
 import { Image } from 'astro:assets'
-import { siAstro, siCloudflareworkers } from 'simple-icons'
+import { siAstro, siCloudflareworkers, siLastdotfm } from 'simple-icons'
 import type { Link } from '@types'
 import pkg from 'package.json'
 
@@ -24,18 +24,23 @@ const links:Link = [
   { link: './sonaart', txt: 'sona art', ext: false },
   { link: './animations', txt: 'animations', ext: false },
   { link: 'https://instagram.com/lucasm.photography', txt: 'photography' },
-  { link: './gear', txt: 'gear and specs', ext: false },
+  { link: './gear', txt: 'gear and sepcs', ext: false },
 ]
 ---
 
 <Layout title={'index'}>
   <div id='pfp'>
     <Image src={avt} alt={'avt'} width={512} quality={'high'} loading={'eager'} title={'art by @eutumned'} />
-    <div class='txt'>
-      <div class='fn'>Lucas.</div>
-      <div class='un'><i>@invisyarcticfox</i></div>
-      <div class='b'>"animator" - photographer - wannabe film crewmember</div>
+    <div class='listening' style='display: none;'>
+      <a href='' target='_blank' rel='noopener noreferrer' set:html={siLastdotfm.svg} />
+      <span>lastfm</span>
     </div>
+  </div>
+
+  <div class='txt'>
+    <div class='fn'>Lucas.</div>
+    <div class='un'><i>@invisyarcticfox</i></div>
+    <div class='b'>"animator" - photographer - wannabe film crewmember</div>
   </div>
 
   <div class='links'>
