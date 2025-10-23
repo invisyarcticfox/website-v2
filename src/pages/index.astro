@@ -20,19 +20,19 @@ const socials:Link = [
   { link: 'https://t.me/invisyarcticfox', txt: 'telegram' },
 ]
 const links:Link = [
-  { link: './about', txt: 'about', ext: false },
-  { link: './sonaart', txt: 'sona art', ext: false },
-  { link: './animations', txt: 'animations', ext: false },
-  { link: 'https://instagram.com/lucasm.photography', txt: 'photography' },
-  { link: './gear', txt: 'gear and sepcs', ext: false },
+  { link: './about', txt: 'about' },
+  { link: './sonaart', txt: 'sona art' },
+  { link: './animations', txt: 'animations' },
+  { link: './photography', txt: 'photography' },
+  { link: './gear', txt: 'gear and sepcs' },
 ]
 ---
 
-<Layout title={'index'}>
+<Layout title={'index'} head={''}>
   <div id='pfp'>
     <Image src={avt} alt={'avt'} width={512} quality={'high'} loading={'eager'} title={'art by @eutumned'} />
     <div class='listening' style='display: none;'>
-      <a href='' target='_blank' rel='noopener noreferrer' set:html={siLastdotfm.svg} />
+      <a href='#' target='_blank' rel='noopener noreferrer' set:html={siLastdotfm.svg} />
       <span>lastfm</span>
     </div>
   </div>
@@ -61,5 +61,5 @@ const links:Link = [
   </footer>
 
   <script src='../scripts/newBlog.ts' />
-  <script src='../scripts/lanyard.ts'></script>
+  <script src='../scripts/lanyard.ts' />
 </Layout>

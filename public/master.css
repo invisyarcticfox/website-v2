@@ -1,6 +1,5 @@
 @import url('https://cdn.jsdelivr.net/npm/@catppuccin/palette/css/catppuccin.css');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import './common.css';
 
 :root {
   --bg: var(--ctp-mocha-crust);
@@ -32,3 +31,5 @@ main { padding: 25px; }
 
 a { color: var(--fg); transition: color var(--trans); }
 a:hover { color: var(--acc); }
+a.noline { text-decoration: none; }
+a.noline:hover { text-decoration: underline; }

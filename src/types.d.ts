@@ -1,32 +1,18 @@
-export type Link = Array<{
+export type Link = {
   link: string
   txt: string
   ext?: boolean
   b?: boolean
-}>
+}[]
 
-export type SonaArt = Array<{
-  artist: string
-  artisturl: string
-  file: string
-  date: string
-  freaky?: boolean
-}>
-
-export type GearStuff = Array<{
-  label: string
-  name?: string
-  content?: { name:string }[]
-}>
-
-export type blogEntries = Array<{
+export type blogEntries = {
   title: string
   id: string
   body: string
   date: string
   readTime: string
   charCount: string
-}>
+}[]
 
 export type discordStatus = {
   data: {
@@ -43,7 +29,7 @@ export type discordStatus = {
       global_name: string
       display_name: string
     }
-    activities: Array<{
+    activities: {
       flags: number
       id: string
       name: string
@@ -53,10 +39,10 @@ export type discordStatus = {
       details: string
       application_id: string
       assets: { large_image: string, large_text: string }
-      buttons: Array<string>
+      buttons: string[]
       created_at: number
       status_display_type: number
-    }>
+    }[]
     discord_status: string
     active_on_discord_desktop: boolean
     active_on_discord_mobile: boolean

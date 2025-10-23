@@ -7,20 +7,27 @@ interface Props {
   }[]
 }
 const { links } = Astro.props
+
+const isExt = (link:string, ext?:boolean) => {
+  if (ext !== undefined) return ext
+  return !link.startsWith('./')
+}
 ---
 
 <ul>
   {
-    links.map(({ link, txt, ext=true }) => (
-      <li>
-        <a
-          href={link}
-          class={'noline'}
-          target={ ext ? '_blank' : undefined }
-          rel='noopener noreferrer'>
+    links.map(({ link, txt, ext }) => {
+      const external = isExt(link,ext)
+      return (
+        <li>
+          <a
+            href={link} target={ external ? '_blank' : undefined }
+            rel='noopener noreferrer' class={'noline'}
+          >
             {txt}
-        </a>
-      </li>
-    ))
+          </a>
+        </li>
+      )
+    })
   }
 </ul>

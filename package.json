@@ -1,17 +1,18 @@
 {
   "name": "website-v2",
   "type": "module",
-  "version": "2.2.0",
+  "version": "2.3.0",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "npx astro build && wrangler pages dev",
+    "preview": "npx astro build && wrangler pages dev ./dist",
     "deploy": "npx wrangler deploy",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.0",
     "@astrojs/sitemap": "^3.4.1",
+    "@lucide/astro": "^0.546.0",
     "astro": "^5.11.0",
     "dotenv": "^17.2.3",
     "octokit": "^5.0.3",

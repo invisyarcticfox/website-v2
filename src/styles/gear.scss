@@ -30,7 +30,12 @@ main { width: 80%; margin: 0 auto; text-align: center; }
 
     .info { div { margin: 2px 0; } }
     
-    .sep { margin: 35px auto 15px; border-top: 2px dashed hsl(from var(--fg) h s l / .5) }
+    .sep {
+      width: 50%;
+      height: 3px;
+      margin: 35px auto 15px;
+      border-top: 2px dashed hsl(from var(--fg) h s l)
+    }
 
     .gallery {
       display: flex;

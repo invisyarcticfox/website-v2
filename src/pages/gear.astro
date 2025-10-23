@@ -1,30 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import GearList from '@/components/GearList.astro'
 import { Image } from 'astro:assets'
-
-import type { GearStuff } from '@types'
 import '@/styles/gear.scss'
-
-const cameraGear:GearStuff = [
-  { label: 'model', name: 'Canon EOS R50' },
-  { label: 'lenses', content: [{ name: '18-45mm' }, { name: '55-210mm' }, { name: '100-400mm'}] },
-  { label: 'mic', name: 'RØDE VideoMicro II' },
-  { label: 'tripod', name: 'Velbon EX-440' },
-]
-
-const pcSpecs:GearStuff = [
-  { label: 'mobo', name: 'MSI PRO-Z690-A WIFI' },
-  { label: 'cpu', name: 'Intel Core i9-12900K' },
-  { label: 'gpu', name: 'NVIDIA GeForce RTX 4070Ti' },
-  { label: 'ram', name: 'Kingston FURY Beast DDR5' },
-  { label: 'ssd', content: [{ name: 'Intel SSDPEKNW' }, { name: 'Crucial M.2 2280' }] },
-  { label: 'monitors', content: [{ name: 'MSI G27C4 E2' }, { name: 'HP Z24I'}] },
-  { label: 'mouse', name: 'Logitech G502 Hero' },
-  { label: 'keyboard', name: 'Lenovo SK-8825 (ISO)' },
-  { label: 'mic', name: 'MAONO AU-A04' },
-  { label: 'headphones', name: 'Sennheiser IE-200' },
-]
 
 import eosr50 from '@/assets/cam/eos-r50.png'
 import rf18 from '@/assets/cam/18-45mm.png'
@@ -38,12 +15,19 @@ import g502 from '@/assets/pc/g502.png'
 import ie200 from '@/assets/pc/ie200.png'
 ---
 
-<Layout title={'gear and specs'}>
-  <div class='head'>Gear and Specs</div>
+<Layout title={'gear and specs'} head={'Gear and Specs'}>
+  
   <div id='lr'>
     <div class='column left'>
       <div class='title'>camera</div>
-      <div class='info'><GearList gear={cameraGear} /></div>
+      <div class='info'>
+        <div>model: <b>Canon EOS R50</b></div>
+        <div>lenses:
+          <b>18-45mm</b>, <b>55-210mm</b>, <b>100-400mm</b>
+        </div>
+        <div>mic: <b>RØDE VideoMicro II</b></div>
+        <div>tripod: <b>Velbon EX-440</b></div>
+      </div>
       <div class='sep' />
       <div class='gallery'>
         <Image src={eosr50} alt={'eosr50'} width={256} loading={'eager'} />
@@ -56,7 +40,18 @@ import ie200 from '@/assets/pc/ie200.png'
     </div>
     <div class='column right'>
       <div class='title'>computer</div>
-      <div class='info'><GearList gear={pcSpecs} /></div>
+      <div class='info'>
+        <div>mobo: <b>MSI PRO-Z690-A WIFI</b></div>
+        <div>cpu: <b>Intel Core i9-12900K</b></div>
+        <div>gpu: <b>NVIDIA GeForce RTX 4070Ti</b></div>
+        <div>ram: <b>Kingston FURY Beast DDR5</b></div>
+        <div>ssd: <b>Intel SSDPEKNW</b>, <b>Crucial M.2 2280</b></div>
+        <div>monitors: <b>MSI G27C4 E2</b>, <b>HP Z24I</b></div>
+        <div>mouse: <b>Logitech G502 Hero</b></div>
+        <div>keyboard: <b>Lenovo SK-8825 (ISO)</b></div>
+        <div>mic: <b>MAONO AU-A04</b></div>
+        <div>headphones: <b>Sennheiser IE-200</b></div>
+      </div>
       <div class='sep' />
       <div class='gallery'>
         <Image src={g502} alt={'g502'} width={256} loading={'eager'} />

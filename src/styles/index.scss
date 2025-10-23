@@ -138,8 +138,9 @@ footer {
 @include mobile {
   main { width: 100%; padding-top: 50px; }
   #pfp {
-    width: 75%;
-    img { width: 75%; }
+    width: 50%;
+    img { width: 100%; }
+    .listening { display: none !important; }
   }
   .links { width: 85%; }
   footer { display: none; }

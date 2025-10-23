@@ -1,0 +1,98 @@
+[
+  {
+    "file": "IMG_0252.jpg",
+    "iso": 3200,
+    "aperture": "f/6.3",
+    "shutterSpeed": "1/1000",
+    "focalLength": "55mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_0361.jpg",
+    "iso": 3200,
+    "aperture": "f/7.1",
+    "shutterSpeed": "1/2500",
+    "focalLength": "210mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_0899.jpg",
+    "iso": 3200,
+    "aperture": "f/11.0",
+    "shutterSpeed": "1/4000",
+    "focalLength": "183mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_0956.jpg",
+    "iso": 3200,
+    "aperture": "f/9.0",
+    "shutterSpeed": "1/4000",
+    "focalLength": "63mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_0594.jpg",
+    "iso": 3200,
+    "aperture": "f/5.0",
+    "shutterSpeed": "1/3200",
+    "focalLength": "55mm",
+    "aspectRatio": "3/4"
+  },
+  {
+    "file": "IMG_0645.jpg",
+    "iso": 3200,
+    "aperture": "f/6.3",
+    "shutterSpeed": "1/4000",
+    "focalLength": "110mm",
+    "aspectRatio": "3/4"
+  },
+  {
+    "file": "IMG_1355.jpg",
+    "iso": 400,
+    "aperture": "f/7.1",
+    "shutterSpeed": "1/250",
+    "focalLength": "210mm",
+    "aspectRatio": "3/4"
+  },
+  {
+    "file": "IMG_1491.jpg",
+    "iso": 400,
+    "aperture": "f/6.3",
+    "shutterSpeed": "1/500",
+    "focalLength": "55mm",
+    "aspectRatio": "3/4"
+  },
+  {
+    "file": "IMG_1568.jpg",
+    "iso": 200,
+    "aperture": "f/8.0",
+    "shutterSpeed": "1/500",
+    "focalLength": "400mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_1542.jpg",
+    "iso": 200,
+    "aperture": "f/8.0",
+    "shutterSpeed": "1/500",
+    "focalLength": "400mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_1547.jpg",
+    "iso": 200,
+    "aperture": "f/8.0",
+    "shutterSpeed": "1/500",
+    "focalLength": "300mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_1557.jpg",
+    "iso": 200,
+    "aperture": "f/8.0",
+    "shutterSpeed": "1/500",
+    "focalLength": "400mm",
+    "aspectRatio": "4/3"
+  }
+]

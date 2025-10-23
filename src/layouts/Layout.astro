@@ -1,7 +1,8 @@
 ---
-interface Props { title: string }
-const { title } = Astro.props
+interface Props { title: string, head: string }
+const { title, head } = Astro.props
 const PgTt = `ItAF - ${title}`
+const isIndex = Astro.url.pathname === '/'
 ---
 
 <!doctype html>
@@ -42,7 +43,38 @@ const PgTt = `ItAF - ${title}`
 	</head>
 	<body>
 		<main>
+			{ !isIndex && (
+				<div class='head'>{head}</div>
+				<div class='note'><slot name='note'/></div>
+			)}
 			<slot />
 		</main>
 	</body>
 </html>
+
+<style lang='scss'>
+  .head {
+    --w: 15%;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+		&::after {
+    	content: '';
+    	display: block;
+    	position: relative;
+    	width: var(--w);
+    	height: 2px;
+    	background: var(--fg);
+    	top: 0;
+    	left: calc(50% - (var(--w) / 2));
+  	}
+  }
+  .head ~ .note {
+    font-size: 0.75em;
+    text-align: center;
+    opacity: 0.75;
+    padding-bottom: 50px;
+		&:empty { display: none; }
+  }
+</style>

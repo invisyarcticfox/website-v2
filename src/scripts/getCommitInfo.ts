@@ -15,8 +15,6 @@ export async function getCommitInfo():Promise<{sha:string, url:string}> {
     headers: { 'X-GitHub-Api-Version': '2022-11-28' }
   })
 
-  return {
-    sha: res[0].sha.slice(0,7),
-    url: res[0].html_url
-  }
+  console.log(res[0].sha)
+  return { sha: res[0].sha.slice(0,7), url: res[0].html_url }
 }

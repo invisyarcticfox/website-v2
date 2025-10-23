@@ -1,0 +1,53 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { Image } from 'astro:assets'
+import type { ImageMetadata } from 'astro'
+import { Aperture, ZoomIn, Timer, Eye, Camera } from '@lucide/astro'
+import photoData from '@/assets/photography/data.json'
+import '@/styles/photography.scss'
+
+const allPhotos = import.meta.glob('/src/assets/photography/photos/*.{jpg,jpeg}')
+const photos = photoData.map(photo => {
+  const path = `/src/assets/photography/photos/${photo.file}`
+  const importer = allPhotos[path]
+  return { ...photo, img:importer }
+})
+
+const loadedPhotos = await Promise.all(
+  photos.map(async photo => {
+    const imported = photo.img ? await photo.img() : null
+    const src = (imported as { default:ImageMetadata }).default
+    return { ...photo, src }
+  })
+)
+---
+
+<Layout title={'photography'} head={'Photography'}>
+  <div slot='note'>
+    The first few photos were taken within a week of me getting my new camera,
+    so excuse the horrible settings
+    <br>
+    i do NOT take pictures at 3200 iso outside anymore LMAO
+  </div>
+  
+  <div class='photogrid'>
+    {
+      loadedPhotos.map(({ src, file, iso, aperture, focalLength, shutterSpeed, aspectRatio }, i) => (
+        <div class='photos'>
+          <div class='camera bg'><Camera /> Canon EOS R50</div>
+          <Image
+            src={src} alt={file}
+            loading={i < 8 ? 'eager' : 'lazy'}
+            quality={'max'} width={720} style={{ aspectRatio }}
+          />
+          <div class='info bg'>
+            <span class='focal'><ZoomIn />{focalLength}</span> |
+            <span class='aperture'><Aperture /><i>{aperture[0]}</i>{aperture.slice(1)}</span> |
+            <span class='shutter'><Timer />{shutterSpeed}</span> |
+            <span class='iso'><Eye />{iso}</span>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Layout>

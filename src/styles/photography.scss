@@ -1,0 +1,67 @@
+@use './mobile' as *;
+
+
+.photogrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  .photos {
+    flex: 1 1 20%;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+
+    img {
+      display: block;
+      background-size: contain;
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+    }
+
+    .bg {
+      --r: calc(var(--radius) - 2px);
+      position: absolute;
+      font-size: .75em;
+      padding: 10px;
+      background: hsl(from var(--bg) h s calc(l * 2) / .75);
+      backdrop-filter: blur(5px);
+
+      svg {
+        position: relative;
+        bottom: 2px;
+        vertical-align: sub;
+        width: 1em;
+        height: 1em;
+      }
+    }
+
+    .camera {
+      font-weight: bold;
+      top: 0;
+      left: 0;
+      width: max-content;
+      border-radius: var(--r) 0;
+    }
+
+    .info {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 0 0 var(--r) var(--r);
+    }
+  }
+}
+
+
+@include mobile {
+  main { padding: 15px; font-size: .75em; }
+  .photogrid {
+    gap: 5px;
+    .photos { flex: 1 1 50%; }
+  }
+}

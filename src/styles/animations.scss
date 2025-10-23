@@ -22,4 +22,5 @@ main { width: 50%; text-align: center; margin: 0 auto; }
 
 @include mobile {
   main { width: 100%; }
+  .item { .info { font-size: .75em; } }
 }

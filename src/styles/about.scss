@@ -46,8 +46,8 @@ main { height: 100vh; }
 
 
 @include mobile {
+  main { padding: 15px; font-size: .75em; }
   .cont {
-    font-size: .75em;
     padding: 10px 10px 100px 10px;
     .portrait { display: none; }
   }
