@@ -1,12 +1,12 @@
 {
   "name": "website-v2",
   "type": "module",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "npx astro build && wrangler pages dev ./dist",
-    "deploy": "npx wrangler deploy",
+    "deploy": "npx wrangler pages deploy",
     "astro": "astro"
   },
   "dependencies": {

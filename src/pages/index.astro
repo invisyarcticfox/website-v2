@@ -2,7 +2,7 @@
 import Layout from '@/layouts/Layout.astro'
 import LinkList from '@/components/LinkList.astro'
 import { Image } from 'astro:assets'
-import { siAstro, siCloudflareworkers, siLastdotfm } from 'simple-icons'
+import { siAstro, siCloudflarepages, siLastdotfm } from 'simple-icons'
 import type { Link } from '@types'
 import pkg from 'package.json'
 
@@ -51,7 +51,7 @@ const links:Link = [
   <footer>
     <span>
       <a href='https://astro.build' target='_blank' rel='noopener noreferrer' set:html={siAstro.svg} /> &
-      <a href='https://workers.cloudflare.com/' target='_blank' rel='noopener noreferrer' set:html={siCloudflareworkers.svg} />
+      <a href='https://pages.cloudflare.com' target='_blank' rel='noopener noreferrer' set:html={siCloudflarepages.svg} />
     </span>
     |
     <span class='commit'>

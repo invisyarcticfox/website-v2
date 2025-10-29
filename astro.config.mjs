@@ -5,11 +5,10 @@ import sitemap from '@astrojs/sitemap'
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
-  build: { format: 'file' },
+  build: { format: 'preserve' },
   trailingSlash: 'never',
   site: 'https://invisyarcticfox.uk',
-
   server: { port: 4321, open: '/' },
+  
   integrations: [ sitemap() ]
 })
