@@ -64,6 +64,14 @@
     "aspectRatio": "3/4"
   },
   {
+    "file": "IMG_1136.jpg",
+    "iso": 600,
+    "aperture": "f/7.1",
+    "shutterSpeed": "1/125",
+    "focalLength": "210mm",
+    "aspectRatio": "4/3"
+  },
+  {
     "file": "IMG_1568.jpg",
     "iso": 200,
     "aperture": "f/8.0",
@@ -90,6 +98,30 @@
   {
     "file": "IMG_1557.jpg",
     "iso": 200,
+    "aperture": "f/8.0",
+    "shutterSpeed": "1/500",
+    "focalLength": "400mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_1884.jpg",
+    "iso": 400,
+    "aperture": "f/8.0",
+    "shutterSpeed": "1/500",
+    "focalLength": "400mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_1915.jpg",
+    "iso": 400,
+    "aperture": "f/8.0",
+    "shutterSpeed": "1/500",
+    "focalLength": "400mm",
+    "aspectRatio": "4/3"
+  },
+  {
+    "file": "IMG_1935.jpg",
+    "iso": 400,
     "aperture": "f/8.0",
     "shutterSpeed": "1/500",
     "focalLength": "400mm",

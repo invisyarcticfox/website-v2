@@ -15,37 +15,29 @@ export type blogEntries = {
 }[]
 
 export type discordStatus = {
-  data: {
-    discord_user: {
-      id: string
-      username: string
-      avatar: string
-      primary_guild: {
-        tag: string
-        identity_guild_id: string
-        badge: string
-        identity_enabled: boolean
-      }
-      global_name: string
-      display_name: string
-    }
-    activities: {
-      flags: number
-      id: string
-      name: string
-      type: number
-      state: string
-      session_id: string
-      details: string
-      application_id: string
-      assets: { large_image: string, large_text: string }
-      buttons: string[]
-      created_at: number
-      status_display_type: number
-    }[]
-    discord_status: string
-    active_on_discord_desktop: boolean
-    active_on_discord_mobile: boolean
-  }
+  data: { discord_status: 'offline' | 'online' | 'idle' | 'dnd' }
   success: boolean
+}
+
+export type LastFM = {
+  recenttracks: {
+    track: {
+      artist: { mbid: string, '#text': string }
+      streamable: string
+      image: { size: string, '#text': string }[]
+      mbid: string
+      album: { mbid: string, '#text': string }
+      name: string
+      '@attr'?: { nowplaying: string }
+      url: string
+      date?: { uts: string, '#text': string }
+    }[]
+    '@attr': {
+      user: string
+      totalPages: string
+      page: string
+      perPage: string
+      total: string
+    }
+  }
 }

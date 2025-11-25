@@ -11,7 +11,7 @@ const gh = await getCommitInfo()
 
 import avt from '@/assets/avatar.png'
 import '@/styles/index.scss'
-import Lanyard from '@/components/Lanyard.astro'
+import LastFM from '@/components/LastFM.astro'
 
 const socials:Link = [
   { link: 'https://blog.invisyarcticfox.uk', txt: 'blog', ext: false },
@@ -32,7 +32,7 @@ const links:Link = [
 <Layout title={'index'} head={''}>
   <div id='pfp'>
     <Image src={avt} alt={'avt'} width={512} quality={'high'} loading={'eager'} title={'art by @eutumned'} />
-    <Lanyard server:defer />
+    <LastFM server:defer />
   </div>
 
   <div class='txt'>
@@ -59,4 +59,5 @@ const links:Link = [
   </footer>
 
   <script src='../scripts/newBlog.ts' />
+  <script src='../scripts/getDiscordStatus.ts' />
 </Layout>

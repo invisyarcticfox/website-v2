@@ -1,0 +1,19 @@
+---
+import type { LastFM } from '@/types'
+import { siLastdotfm } from 'simple-icons'
+
+const res = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=invisyarcticfox&api_key=${process.env.LFM_API_TOKEN}&format=json`)
+const d:LastFM = await res.json()
+console.log(d.recenttracks.track[0])
+const firstTrack = d.recenttracks.track[0]
+const nowPlaying = firstTrack['@attr']?.nowplaying === 'true' ? firstTrack : null
+---
+
+{
+  nowPlaying && (
+    <div class='listening'>
+      <a href={nowPlaying.url} target='_blank' rel='noopener noreferrer' set:html={siLastdotfm.svg} />
+      <span><b>{nowPlaying.name}</b> by <b>{nowPlaying.artist['#text']}</b></span>
+    </div>
+  )
+}

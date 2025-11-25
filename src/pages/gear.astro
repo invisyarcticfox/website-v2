@@ -3,17 +3,17 @@ import Layout from '@/layouts/Layout.astro'
 import { Image } from 'astro:assets'
 import '@/styles/gear.scss'
 
-import eosr50 from '@/assets/cam/eos-r50.png'
-import rf18 from '@/assets/cam/18-45mm.png'
-import rf55 from '@/assets/cam/55-210mm.png'
-import rf100 from '@/assets/cam/100-400mm.png'
-import vmii from '@/assets/cam/vmii.png'
-import ex440 from '@/assets/cam/ex-440.png'
+import eosr50 from '@/assets/specs/cam/eos-r50.png'
+import rf18 from '@/assets/specs/cam/18-45mm.png'
+import rf55 from '@/assets/specs/cam/55-210mm.png'
+import rf100 from '@/assets/specs/cam/100-400mm.png'
+import vmii from '@/assets/specs/cam/vmii.png'
+import ex440 from '@/assets/specs/cam/ex-440.png'
 
-import ao4 from '@/assets/pc/au-ao4.png'
-import g502 from '@/assets/pc/g502.png'
-import ie200 from '@/assets/pc/ie200.png'
-import k55 from '@/assets/pc/k55.png'
+import ao4 from '@/assets/specs/pc/au-ao4.png'
+import g502 from '@/assets/specs/pc/g502.png'
+import ie200 from '@/assets/specs/pc/ie200.png'
+import k55 from '@/assets/specs/pc/k55.png'
 ---
 
 <Layout title={'gear and specs'} head={'Gear and Specs'}>
@@ -39,6 +39,7 @@ import k55 from '@/assets/pc/k55.png'
         <Image src={rf100} alt={'r5055'} width={256} loading={'eager'} />
       </div>
     </div>
+
     <div class='column right'>
       <div class='title'>computer</div>
       <div class='info'>
@@ -60,5 +61,6 @@ import k55 from '@/assets/pc/k55.png'
         <Image src={ie200} alt={'ie200'} width={256} loading={'eager'} />
         <Image src={k55} alt={'ie200'} height={256} loading={'eager'} />
       </div>
+    </div>
   </div>
 </Layout>
