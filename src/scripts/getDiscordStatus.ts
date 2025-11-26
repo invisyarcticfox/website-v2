@@ -5,11 +5,9 @@ const statusColours = { online: '#23A55A', idle: '#F0B232', dnd: '#F23F43', offl
 
 
 (async () => {
-  const res = await fetch('https://api.lanyard.rest/v1/users/470193291053498369')
+  const res = await fetch('https://api.invisyarcticfox.uk/pi/discord')
   const d:discordStatus = await res.json()
-  console.log(d.data)
-  const status = d.data.discord_status
-  const statusColour = statusColours[status] || statusColours.offline
-
+  console.log(d)
+  const statusColour = statusColours[d.status] || statusColours.offline
   pfp.style.borderColor = statusColour
 })()

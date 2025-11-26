@@ -15,8 +15,11 @@ export type blogEntries = {
 }[]
 
 export type discordStatus = {
-  data: { discord_status: 'offline' | 'online' | 'idle' | 'dnd' }
-  success: boolean
+  id: string
+  name: string
+  username: string
+  status: 'offline' | 'online' | 'idle' | 'dnd'
+  avatar: string
 }
 
 export type LastFM = {

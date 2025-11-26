@@ -2,11 +2,9 @@
 import type { LastFM } from '@/types'
 import { siLastdotfm } from 'simple-icons'
 
-const res = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=invisyarcticfox&api_key=${process.env.LFM_API_TOKEN}&format=json`)
-const d:LastFM = await res.json()
-console.log(d.recenttracks.track[0])
-const firstTrack = d.recenttracks.track[0]
-const nowPlaying = firstTrack['@attr']?.nowplaying === 'true' ? firstTrack : null
+const res = await fetch(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=invisyarcticfox&api_key=${import.meta.env.LFM_API_TOKEN}&format=json`)
+const { recenttracks: { track:[latest] } }:LastFM = await res.json()
+const nowPlaying = latest['@attr']?.nowplaying === 'true' ? latest : null
 ---
 
 {
