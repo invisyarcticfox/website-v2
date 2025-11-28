@@ -85,7 +85,8 @@ main { width: 50%; margin: 0 auto; padding-top: 100px; }
     li {
       margin: 5px;
       a {
-        &[href="https://blog.invisyarcticfox.uk"] { font-weight: bold; }
+        &[href="https://blog.invisyarcticfox.uk"],
+        &[href="https://pi.invisyarcticfox.uk"] { font-weight: bold; }
         &.new {
           position: relative;
           left: 9px;

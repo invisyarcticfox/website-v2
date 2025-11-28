@@ -1,6 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro'
 import LinkList from '@/components/LinkList.astro'
+import LastFM from '@/components/LastFM.astro'
 import { Image } from 'astro:assets'
 import { siAstro, siCloudflarepages } from 'simple-icons'
 import type { Link } from '@types'
@@ -11,14 +12,13 @@ const gh = await getCommitInfo()
 
 import avt from '@/assets/avatar.png'
 import '@/styles/index.scss'
-import LastFM from '@/components/LastFM.astro'
 
 const socials:Link = [
   { link: 'https://blog.invisyarcticfox.uk', txt: 'blog', ext: false },
+  { link: 'https://pi.invisyarcticfox.uk', txt: 'raspi' },
   { link: 'https://twitter.com/invisyarcticfox', txt: 'twitter' },
   { link: 'https://bsky.app/profile/invisyarcticfox.uk', txt: 'bluesky' },
   { link: 'https://discord.com/users/470193291053498369', txt: 'discord' },
-  { link: 'https://t.me/invisyarcticfox', txt: 'telegram' },
 ]
 const links:Link = [
   { link: './about', txt: 'about' },

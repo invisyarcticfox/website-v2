@@ -4,7 +4,7 @@ import { Image } from 'astro:assets';
 import avt from '@/assets/avatar.png'
 ---
 
-<Layout title={'404'}>
+<Layout title={'404'} head={''}>
   <Image src={avt} alt={'avt'} width={256} quality={'mid'} loading={'eager'} />
   <h1><span>404:</span> Not found</h1>
   <pre>Path: <span></span></pre>
